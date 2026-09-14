@@ -1,0 +1,232 @@
+.blog-page {
+    background-color: white;
+    min-height: 100vh;
+    padding: 60px 0 100px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Tabs */
+.blog-tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.blog-page .contact-section {
+    margin-top: 0px;
+}
+
+.blog-tabs {
+    background-color: #FFF8E7;
+    /* Light cream background for tabs container */
+    padding: 10px;
+    border-radius: 50px;
+    display: inline-flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.blog-tab {
+    background: transparent;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #5d4a41;
+    /* Brownish text */
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.blog-tab:hover {
+    color: #F7941E;
+}
+
+.blog-tab.active {
+    background-color: #F7941E;
+    color: white;
+    box-shadow: 0 4px 10px rgba(247, 148, 30, 0.2);
+}
+
+/* Cards */
+.blog-card {
+    border: none;
+    background: transparent;
+    margin-bottom: 30px;
+}
+
+.blog-img-wrapper {
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+    /* Aspect ratio helper */
+    aspect-ratio: 16 / 9;
+}
+
+.blog-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-img {
+    transform: scale(1.05);
+}
+
+.blog-meta {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.blog-title {
+    font-family: 'Larken', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #2D1C1C;
+    /* Dark brown/black */
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.blog-desc {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Footer layout inside card */
+.blog-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.read-more-link {
+    color: #F7941E;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.read-more-link:hover {
+    color: #c9720e;
+    text-decoration: underline;
+}
+
+.blog-author-badge {
+    background-color: #F7941E;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+}
+
+/* Featured Card Tweaks to match top large cards */
+.featured-card .blog-img-wrapper {
+    /* Slightly taller or maintained ratio for large cards */
+    aspect-ratio: 16 / 9;
+}
+
+.featured-card .blog-title {
+    font-size: 2rem;
+}
+
+@media (max-width: 991px) {
+    .featured-card .blog-title {
+        font-size: 1.75rem;
+    }
+}
+
+/* Pagination */
+.blog-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.page-btn {
+    background: white;
+    border: 1px solid #eee;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #333;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.page-btn:hover:not(:disabled) {
+    border-color: #F7941E;
+    color: #F7941E;
+}
+
+.page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.page-numbers {
+    display: flex;
+    gap: 10px;
+}
+
+.page-num {
+    background: transparent;
+    border: none;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: #666;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.page-num:hover {
+    background-color: #f5f5f5;
+}
+
+.page-num.active {
+    background-color: #FAF5FF;
+    /* Slight lavender tint from image or light grey */
+    color: #8B5CF6;
+    /* Purple active state from image, or sticking to brand color */
+    /* Wait, image has purple active state '1'. I'll stick to a clean look or matching brand */
+    background-color: #FDF4E6;
+    /* Light orange tint */
+    color: #F7941E;
+}
+
+.blog-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}

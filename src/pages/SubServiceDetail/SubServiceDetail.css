@@ -1,0 +1,225 @@
+.sub-sd-page-wrapper {
+    background-color: #ffffff;
+    padding-top: 3rem;
+}
+
+.sub-sd-main-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-bottom: 4.5rem;
+}
+
+.sub-sd-content-title {
+    font-family: 'Larken', serif;
+    font-size: 3rem;
+    color: #0E1D28;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+}
+
+.sub-sd-title-underline {
+    width: 50px;
+    height: 4px;
+    background-color: #ff9900;
+    /* Cobalt Blue line from screenshot */
+    margin: 0 auto 3rem auto;
+    border-radius: 2px;
+}
+
+.sub-sd-content-link {
+    color: #ff9900;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.sub-sd-content-link:hover {
+    color: #1D4ED8;
+}
+
+.sub-sd-content-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    color: #333333;
+    line-height: 1.8;
+}
+
+.sub-sd-body-paragraph {
+    margin-bottom: 1.5rem;
+}
+
+.sub-sd-suggestions-list {
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+}
+
+.sub-sd-list-item {
+    margin-bottom: 1.2rem;
+    line-height: 1.75;
+}
+
+.sub-sd-list-item strong {
+    color: #0E1D28;
+    font-weight: 700;
+}
+
+.sub-sd-cta-paragraph {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #0E1D28;
+    margin-top: 2rem;
+    line-height: 1.7;
+}
+
+/* Specialized Services Grid */
+.sub-sd-specialized-section {
+    padding: 4.5rem 0;
+    background-color: #FCFBF7;
+    /* Soft background to separate the grid section */
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.sub-sd-specialized-title {
+    font-family: 'Larken', serif;
+    font-size: 2.8rem;
+    color: #0E1D28;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.sub-sd-underline {
+    width: 60px;
+    height: 4px;
+    background-color: #F7941E;
+    margin: 0 auto 3rem auto;
+    border-radius: 2px;
+}
+
+.sub-sd-specialized-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+}
+
+.sub-sd-specialized-card-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.sub-sd-specialized-card-link:hover {
+    transform: translateY(-5px);
+}
+
+.sub-sd-specialized-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 2.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    min-height: 180px;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.sub-sd-specialized-card-link:hover .sub-sd-specialized-card {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    border-color: #F7941E;
+}
+
+.sub-sd-specialized-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub-sd-specialized-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.sub-sd-specialized-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+    font-weight: 500;
+    line-height: 1.4;
+    max-width: 90%;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .sub-sd-specialized-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 991px) {
+    .sub-sd-content-title {
+        font-size: 2.6rem;
+    }
+
+    .sub-sd-specialized-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .sub-sd-page-wrapper {
+        padding-top: 3rem;
+    }
+
+    .sub-sd-content-title {
+        font-size: 2.2rem;
+    }
+
+    .sub-sd-specialized-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sub-sd-specialized-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sub-sd-specialized-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* FAQ Section */
+.sub-sd-faq-section {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.sub-sd-faq-title {
+    font-family: 'Larken', serif;
+    font-size: 2.2rem;
+    color: #0E1D28;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.sub-sd-faq-underline {
+    width: 40px;
+    height: 3px;
+    background-color: #F7941E;
+    margin-bottom: 2rem;
+    border-radius: 2px;
+}

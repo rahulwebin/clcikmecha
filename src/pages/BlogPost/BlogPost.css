@@ -1,0 +1,254 @@
+.blog-post-page {
+    background-color: white;
+    padding: 60px 0 100px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Hero Image */
+.blog-hero-image-wrapper {
+    width: 100%;
+    margin-bottom: 2rem;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.blog-hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Post Content */
+.blog-post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.blog-post-title {
+    font-family: 'Larken', serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #2D1C1C;
+    margin-bottom: 2rem;
+    line-height: 1.1;
+}
+
+.blog-post-body p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4A4A4A;
+    margin-bottom: 2rem;
+}
+
+.blog-faq-section {
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid #eee;
+}
+
+.blog-faq-header {
+    margin-bottom: 1.5rem;
+}
+
+.blog-faq-eyebrow {
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #F7941E;
+}
+
+.blog-faq-title {
+    font-family: 'Larken', serif;
+    font-size: 2rem;
+    color: #2D1C1C;
+    margin: 0;
+}
+
+.blog-faq-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.blog-faq-item {
+    border: 1px solid #eadfcd;
+    border-radius: 18px;
+    background: #fffaf2;
+    overflow: hidden;
+}
+
+.blog-faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2D1C1C;
+}
+
+.blog-faq-icon {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #F7941E;
+    color: #0E1D28;
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.blog-faq-answer {
+    display: none;
+    padding: 0 1.5rem 1.5rem;
+}
+
+.blog-faq-answer.is-open {
+    display: block;
+}
+
+.blog-faq-answer p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #5d4a41;
+}
+
+/* Sidebar Sticky */
+.blog-sidebar-sticky {
+    position: sticky;
+    top: 100px;
+    /* Adjust based on header height */
+    z-index: 10;
+}
+
+.sidebar-form-card {
+    background-color: #FFF8E7;
+    /* Light cream */
+    padding: 2.5rem;
+    border-radius: 20px;
+}
+
+.sidebar-title {
+    font-family: 'Larken', serif;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: #2D1C1C;
+}
+
+.sidebar-input {
+    background-color: transparent;
+    border: 1px solid #D6CEC3;
+    /* Slightly darker than bg */
+    border-radius: 50px;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    color: #5d4a41;
+}
+
+.sidebar-input:focus {
+    background-color: white;
+    box-shadow: none;
+    border-color: #F7941E;
+}
+
+.sidebar-consent-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.btn-sidebar-submit {
+    background-color: #F7941E;
+    color: #0E1D28;
+    font-weight: 700;
+    border: 1px solid #0E1D28;
+    padding: 12px 0;
+    width: 100%;
+    border-radius: 50px;
+    box-shadow: 0 4px 0 #0E1D28;
+    transition: all 0.1s;
+    text-transform: uppercase;
+}
+
+.btn-sidebar-submit:active {
+    box-shadow: 0 0 0 #0E1D28;
+    transform: translateY(4px);
+}
+
+/* Related Articles */
+.related-articles-section {
+    margin-top: 100px;
+    padding-top: 60px;
+    border-top: 1px solid #eee;
+}
+
+.related-img-wrapper {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    aspect-ratio: 16/10;
+}
+
+.related-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.related-card:hover .related-img {
+    transform: scale(1.05);
+}
+
+.related-meta {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.related-title {
+    font-family: 'Larken', serif;
+    font-size: 1.25rem;
+    color: #2D1C1C;
+    margin-bottom: 0.5rem;
+}
+
+.related-desc {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+@media (max-width: 991px) {
+    .blog-post-title {
+        font-size: 2.25rem;
+    }
+
+    .blog-faq-title {
+        font-size: 1.6rem;
+    }
+
+    .blog-sidebar-sticky {
+        position: static;
+        margin-top: 3rem;
+    }
+}

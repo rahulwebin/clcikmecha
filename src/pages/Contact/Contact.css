@@ -1,0 +1,201 @@
+.contact-page-wrapper {
+    background-color: white;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.contact-hero {
+    background: linear-gradient(135deg, #fffaf0 0%, #fff0dc 100%);
+    padding: 80px 0 100px;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    position: relative;
+    border-radius: 50px;
+}
+
+/* Subtle grid pattern overlay if desired, but gradient is cleaner based on image */
+
+.contact-hero-title {
+    font-family: 'Larken', serif;
+    font-size: 3.5rem;
+    color: #0E1D28;
+    margin-bottom: 1rem;
+}
+
+.serif-italic {
+    font-style: italic;
+    font-weight: 400;
+    /* Adjust if Larken italic is heavier */
+}
+
+.contact-hero-desc {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Form Section */
+.contact-form-section {
+    padding-bottom: 5rem;
+}
+
+.form-title {
+    font-family: 'Larken', serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #0E1D28;
+}
+
+.stars-icon {
+    font-size: 1.8rem;
+    vertical-align: middle;
+    color: #F7941E;
+    /* Orange sparkle */
+}
+
+.custom-input {
+    border: 1px solid #ccc;
+    /* Slightly darker border */
+    border-radius: 50px;
+    /* Fully rounded pills */
+    padding: 12px 25px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+    transition: all 0.3s;
+}
+
+.custom-input:focus {
+    border-color: #0E1D28;
+    box-shadow: 0 0 0 4px rgba(14, 29, 40, 0.1);
+}
+
+.custom-input::placeholder {
+    color: #999;
+}
+
+.group-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #666;
+}
+
+.form-check-label {
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.form-check-input {
+    cursor: pointer;
+    border-color: #999;
+}
+
+.form-check-input:checked {
+    background-color: #0E1D28;
+    border-color: #0E1D28;
+}
+
+.btn-submit-query {
+    background-color: #F7941E;
+    border: 2px solid #0E1D28;
+    color: #0E1D28;
+    font-weight: 700;
+    padding: 14px 40px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 0px #0E1D28;
+    /* 3D effect */
+    transition: all 0.1s;
+    width: auto;
+    display: inline-block;
+}
+
+.btn-submit-query:active {
+    box-shadow: 0px 0px 0px #0E1D28;
+    transform: translateY(4px);
+}
+
+/* Contact Details Card */
+.contact-details-card {
+    background-color: #FFF8E7;
+    /* Light cream/yellowish */
+    padding: 2.5rem;
+    border-radius: 30px;
+    height: 100%;
+}
+
+.details-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #0E1D28;
+    margin-bottom: 2.5rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.info-icon-circle {
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    /* White circle */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+    color: #0E1D28;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.info-text .label {
+    display: block;
+    font-size: 0.75rem;
+    color: #999;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+}
+
+.info-text .value {
+    color: #0E1D28;
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.map-container {
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 2rem;
+    background: #eee;
+}
+
+@media (max-width: 991px) {
+    .contact-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .contact-details-card {
+        margin-top: 3rem;
+        padding: 2rem;
+    }
+}
+
+/* Fix for browser autofill background color */
+/* input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+} */

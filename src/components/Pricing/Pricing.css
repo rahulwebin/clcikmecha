@@ -1,0 +1,195 @@
+.pricing-section {
+    padding: 6rem 0;
+    background-color: #fffbf2;
+    /* Matching the creamy background */
+    font-family: 'Inter', sans-serif;
+}
+
+.pricing-title {
+    font-family: 'Larken', serif;
+    font-size: 3rem;
+    color: #0E1D28;
+    margin-bottom: 4rem;
+}
+
+.pricing-title::after {
+    content: "started";
+    display: block;
+}
+
+.pricing-title {
+    /* Adjusting title to match the line break if needed, 
+       but centering is fine for now. 
+       The image has "Our plans to get \n started" center aligned 
+    */
+    line-height: 1.2;
+}
+
+/* Card Styles */
+.pricing-card {
+    background: white;
+    border-radius: 32px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+}
+
+.highlight-card {
+    background-color: #F7941E;
+    /* Orange */
+    color: white;
+    transform: scale(1.05);
+    z-index: 2;
+    box-shadow: 0 20px 40px rgba(247, 148, 30, 0.2);
+}
+
+.highlight-card:hover {
+    transform: scale(1.08);
+}
+
+/* Badge */
+.discount-badge {
+    display: inline-block;
+    background-color: #F7941E;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.highlight-card .discount-badge {
+    background-color: white;
+    color: #F7941E;
+}
+
+/* Price */
+.price-header {
+    margin-bottom: 1.5rem;
+}
+
+.price {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+    color: #0E1D28;
+}
+
+.highlight-card .price {
+    color: white;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.highlight-card .original-price {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Description */
+.plan-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #555;
+    max-width: 280px;
+}
+
+.highlight-card .plan-description {
+    color: white;
+}
+
+/* Features */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.5rem 0;
+    text-align: left;
+    width: 100%;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.highlight-card .feature-list li {
+    color: white;
+}
+
+.check-icon {
+    flex-shrink: 0;
+    margin-right: 12px;
+}
+
+/* Button */
+/* Button */
+.btn-book-pricing {
+    margin-top: auto;
+    background-color: #F7941E;
+    border: 2px solid #0E1D28;
+    color: #0E1D28;
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: all 0.1s ease;
+    width: 100%;
+    /* 3D Effect */
+    box-shadow: 0px 4px 0px #0E1D28;
+    position: relative;
+    top: 0;
+}
+
+.highlight-card .btn-book-pricing {
+    background-color: white;
+    border-color: #0E1D28;
+    color: #0E1D28;
+    box-shadow: 0px 4px 0px #0E1D28;
+}
+
+.pricing-card .btn-book-pricing:active {
+    box-shadow: 0px 0px 0px #0E1D28;
+    top: 4px;
+}
+
+.pricing-card .btn-book-pricing:hover {
+    transform: none;
+    /* remove previous hover effect */
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .highlight-card {
+        transform: scale(1);
+    }
+
+    .highlight-card:hover {
+        transform: scale(1.02);
+    }
+
+    .pricing-title {
+        font-size: 2.5rem;
+    }
+}

@@ -1,0 +1,508 @@
+.about-page {
+    width: 100%;
+    background-color: #fff;
+}
+
+.about-status-screen {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.about-loader {
+    width: 3rem;
+    height: 3rem;
+    color: #f89b29;
+}
+
+.about-status-text {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1rem;
+    color: #64748b;
+}
+
+.section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+
+section.meet-kavya-section {
+    margin-top: -96px;
+    position: relative;
+}
+
+/* Custom bg utility if not in bootstrap standard setup for cover/center */
+.bg-cover {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bg-center {
+    background-position: center;
+}
+
+/* Typography remains custom as requested/designed */
+.about-title {
+    font-family: 'Larken', system-ui, serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.2;
+}
+
+.highlight {
+    color: #fca311;
+}
+
+.about-description {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1.15rem;
+    color: #4b5563;
+    line-height: 1.6;
+    max-width: 700px;
+}
+
+/* Meet Kavya Section */
+.section-label-orange {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fca311;
+    text-transform: capitalize;
+    display: block;
+}
+
+.about-subheading {
+    font-family: 'Larken', system-ui, serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.about-text {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+.stat-number {
+    font-family: 'Larken', system-ui, serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.2rem;
+}
+
+.stat-label {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.kavya-image-wrapper img {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Story Section */
+.story-heading {
+    font-family: 'Larken', system-ui, serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.highlight-orange {
+    color: #fca311;
+}
+
+.story-image-wrapper img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.story-image-wrapper img:hover {
+    transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+    .about-title {
+        font-size: 28px;
+    }
+
+    section.meet-kavya-section {
+        margin-top: -44px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .turning-point-section {
+        margin: 10px !important;
+        padding: 45px 0px !important;
+    }
+
+    .about-page {
+        overflow: hidden;
+    }
+
+    section.who-we-are-section.section-padding {
+        overflow: hidden;
+    }
+
+    section.story-section {
+        overflow: hidden;
+    }
+
+    .about-subheading {
+        font-size: 2.2rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .story-heading {
+        font-size: 1.8rem;
+    }
+
+    .section-padding {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    /* Center Who We Are items on mobile */
+    .icon-box {
+        margin: 0 auto 1.5rem !important;
+    }
+
+    .value-title,
+    .value-desc {
+        text-align: center;
+    }
+}
+
+/* Turning Point Section */
+.turning-point-section {
+    background-color: #FFFBF5;
+    /* Beige background */
+    border-radius: 30px;
+    margin: 2rem;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.turning-point-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,100 Q50,0 100,100' stroke='%23EEE' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+    /* Placeholder for the subtle curved lines background */
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.turning-point-content {
+    position: relative;
+    z-index: 1;
+}
+
+
+
+.turning-point-content .slick-slide {
+    padding: 0 15px;
+    /* Gap between slides */
+}
+
+.turning-point-content .slick-track {
+    display: flex;
+    align-items: stretch;
+}
+
+.turning-point-content .slick-slide>div {
+    height: 100%;
+}
+
+.turning-point-content .slick-slide .timeline-card {
+    height: 100%;
+}
+
+.timeline-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.timeline-card:hover {
+    transform: translateY(-5px);
+}
+
+/* 3D Badge Style */
+.timeline-badge {
+    display: inline-block;
+    background-color: #F89B29;
+    /* Bright Orange */
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+
+    /* 3D Effect */
+    border: 1.5px solid #1a1a1a;
+    box-shadow: 2px 2px 0 #1a1a1a;
+    transform: translate(-2px, -2px);
+    position: relative;
+    top: -1px;
+    left: -1px;
+}
+
+.timeline-badge:hover {
+    box-shadow: 1px 1px 0 #1a1a1a;
+}
+
+/* Specific colors if they differ, otherwise all orange as per image */
+.badge-early-days,
+.badge-growth,
+.badge-the-break,
+.badge-today {
+    background-color: #F89B29;
+}
+
+.timeline-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #0f172a;
+    /* Darker, sharper color */
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+.timeline-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Who We Are & Emotional Core Style */
+.who-we-are-intro {
+    font-size: 1.1rem;
+    color: #64748b;
+    line-height: 1.6;
+    max-width: 400px;
+    margin-left: auto;
+}
+
+.icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #E89B25;
+    border-radius: 50%;
+    margin-bottom: 3rem;
+}
+
+.value-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.value-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* Emotional Core */
+.bg-light-creme {
+    background-color: #FFFBF5;
+    /* Matching the turning point bg */
+}
+
+.about-team-image-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    min-height: 500px;
+    /* Force height to match content nicely */
+}
+
+.emotional-content {
+    padding-left: 1rem;
+}
+
+.curved-arrow-icon {
+    position: absolute;
+    bottom: -15px;
+    right: -70px;
+    /* Adjust based on image provided */
+    width: 80px;
+    transform: rotate(-10deg);
+}
+
+.core-values-list li {
+    font-family: 'Inter', sans-serif;
+    color: #000;
+    /* Indigo/Purple color from image */
+    font-weight: 500;
+    font-size: 1.1rem;
+    position: relative;
+    padding-left: 0;
+}
+
+.highlight-tagline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #F89B29;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 2rem;
+}
+
+@media (max-width: 992px) {
+    .who-we-are-intro {
+        text-align: left !important;
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+
+    .curved-arrow-icon {
+        display: none;
+        /* Hide on small screens where layout breaks */
+    }
+
+    .about-team-image-wrapper img {
+        min-height: auto;
+    }
+}
+
+/* CTA Section */
+.cta-card {
+    background-color: #F38E22;
+    /* Vivid Orange from design */
+    border-radius: 40px;
+    padding: 5rem 3rem;
+    box-shadow: 0 20px 40px rgba(243, 142, 34, 0.2);
+    /* World Map Background Placeholder - would use an actual image here */
+    background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,50 Q30,20 50,50 T80,50' stroke='rgba(255,255,255,0.1)' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: center;
+}
+
+.cta-title {
+    font-family: 'Larken', system-ui, serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.cta-text {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 450px;
+    margin-left: auto;
+    opacity: 0.95;
+}
+
+.contact-icon-circle {
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover .contact-icon-circle {
+    background: #fff;
+    color: #F38E22;
+    border-color: #fff;
+}
+
+.contact-info {
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #1a1a1a;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.btn-white:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    /* Bootstrap override */
+    color: #1a1a1a;
+}
+
+.badge-free {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    top: -12px;
+    /* Position it overlapping the button */
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+}
+
+@media (max-width: 992px) {
+    .cta-text {
+        text-align: left !important;
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+
+    .cta-card {
+        padding: 45px 7px;
+    }
+
+    .cta-title {
+        font-size: 2.5rem;
+    }
+
+    .cta-contact-row {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+}

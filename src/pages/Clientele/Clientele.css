@@ -1,0 +1,95 @@
+.clientele-page {
+    background-color: white;
+    padding: 80px 0 0px;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+.clientele-page .contact-section {
+    margin-top: 0px;
+}
+
+.clientele-header {
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.clientele-title {
+    font-family: 'Larken', serif;
+    font-size: 3.5rem;
+    color: #0E1D28;
+    margin-bottom: 20px;
+}
+
+.clientele-desc {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Grid Layout */
+.clientele-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    align-items: center;
+    justify-items: center;
+}
+
+.client-logo-card {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+}
+
+.client-logo-card:hover {
+    transform: scale(1.1);
+}
+
+.client-logo-img {
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+    /* filter: grayscale(100%); */
+    /* Optional: Make them grayscale if you want uniform look initially */
+    /* opacity: 0.8; */
+    transition: all 0.3s ease;
+}
+
+.client-logo-card:hover .client-logo-img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .clientele-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 991px) {
+    .clientele-title {
+        font-size: 2.5rem;
+    }
+
+    .clientele-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .clientele-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}

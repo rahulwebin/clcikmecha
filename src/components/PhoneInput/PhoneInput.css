@@ -1,0 +1,212 @@
+.custom-phone-input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  background-color: #fff;
+  padding: 0 15px;
+  transition: all 0.3s;
+}
+
+.custom-phone-input-container:focus-within {
+  border-color: #0E1D28;
+  box-shadow: 0 0 0 4px rgba(14, 29, 40, 0.1);
+}
+
+.flag-select-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 12px 12px 10px;
+  cursor: pointer;
+  border-right: 1px solid #ddd;
+  margin-right: 10px;
+  user-select: none;
+}
+
+.flag-select-button:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.flag-emoji {
+  font-size: 1.3rem;
+}
+
+.dial-code {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.arrow-down {
+  font-size: 0.65rem;
+  color: #666;
+  transition: transform 0.2s;
+}
+
+.custom-phone-input-container:focus-within .arrow-down {
+  color: #333;
+}
+
+/* Dropdown list styling */
+.country-dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-width: 350px;
+  max-height: 250px;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  margin-top: 8px;
+  padding: 8px 0;
+  list-style: none;
+  z-index: 9999;
+  text-align: left;
+}
+
+/* Custom scrollbar for dropdown */
+.country-dropdown-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.country-dropdown-list::-webkit-scrollbar-track {
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+.country-dropdown-list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.country-dropdown-list::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+.country-dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.country-dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.country-dropdown-item.active {
+  background-color: #FFF8E7;
+  font-weight: 600;
+}
+
+.dropdown-flag {
+  font-size: 1.3rem;
+  margin-right: 12px;
+}
+
+.dropdown-country-name {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 12px;
+}
+
+.dropdown-dial-code {
+  color: #666;
+  font-weight: 500;
+}
+
+/* Phone input field */
+.phone-input-field {
+  border: none;
+  background: transparent;
+  padding: 12px 0;
+  font-size: 0.95rem;
+  color: #333;
+  width: 100%;
+  outline: none;
+}
+
+.phone-input-field::placeholder {
+  color: #999;
+}
+
+/* General overrides for simple/help form variations */
+.custom-phone-input-container.simple-style {
+  border-radius: 8px;
+  border: none;
+  height: 48px;
+  padding: 0 12px;
+}
+
+.custom-phone-input-container.simple-style:focus-within {
+  box-shadow: 0 0 0 3px rgba(14, 29, 40, 0.1);
+}
+
+.custom-phone-input-container.simple-style .flag-select-button {
+  padding: 8px 10px 8px 5px;
+}
+
+.custom-phone-input-container.simple-style .phone-input-field {
+  padding: 8px 0;
+  font-weight: 500;
+}
+
+.custom-phone-input-container.simple-style .phone-input-field::placeholder {
+  color: #333;
+  font-weight: 600;
+  opacity: 1;
+}
+
+/* Landing Page (LP) override styles */
+.custom-phone-input-container.lp-style {
+  border-radius: 12px;
+  padding: 0 1rem;
+}
+
+.custom-phone-input-container.lp-style:focus-within {
+  border-color: #0E1D28;
+  box-shadow: 0 0 0 2px rgba(14, 29, 40, 0.1);
+}
+
+.custom-phone-input-container.lp-style .flag-select-button {
+  padding: 1rem 10px 1rem 0;
+}
+
+.custom-phone-input-container.lp-style .phone-input-field {
+  padding: 1rem 0;
+}
+
+.custom-phone-input-container.lp-style .phone-input-field::placeholder {
+  color: #888888;
+}
+
+/* Square/default borders (e.g. for Career page) */
+.custom-phone-input-container.career-style {
+  border-radius: 6px;
+  border-color: #ddd;
+  padding: 0 12px;
+}
+
+.custom-phone-input-container.career-style:focus-within {
+  border-color: #F7941E;
+  box-shadow: 0 0 0 0.2rem rgba(247, 148, 30, 0.15);
+}
+
+.custom-phone-input-container.career-style .flag-select-button {
+  padding: 10px 10px 10px 0;
+}
+
+.custom-phone-input-container.career-style .phone-input-field {
+  padding: 10px 0;
+}

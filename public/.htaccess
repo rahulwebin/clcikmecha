@@ -1,0 +1,42 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Disable automatic directory trailing slash redirection
+  <IfModule mod_dir.c>
+    DirectorySlash Off
+  </IfModule>
+
+  # Prevent directory listings
+  Options -Indexes
+
+  # Handle root index.html
+  RewriteRule ^index\.html$ - [L]
+
+  # 1. Legacy & custom 301 redirects (Strip trailing slash automatically)
+  RewriteRule ^about-us/?$ /about [R=301,L]
+  RewriteRule ^service-detail/?$ /digital-marketing-agency-in-dubai [R=301,L]
+  RewriteRule ^in/digital-marketing-services-in-jaipur.*$ /in/digital-marketing-services-in-jaipur [R=301,L]
+
+  # 2. Strip trailing slash from any URL (except root /)
+  RewriteCond %{REQUEST_METHOD} =GET
+  RewriteCond %{REQUEST_URI} ^/(.+)/+$
+  RewriteRule ^ /%1 [R=301,L]
+
+  # 3. If exact static asset exists (images, js, css, woff2, etc.), serve it directly
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # 4. If pre-rendered .html file exists for clean URL, serve it directly
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L,QSA]
+
+  # 5. If pre-rendered directory with index.html exists, serve it directly
+  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+  RewriteRule ^(.+?)/?$ $1/index.html [L,QSA]
+
+  # 6. Fallback to React SPA index.html for client-side routing
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

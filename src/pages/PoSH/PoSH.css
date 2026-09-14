@@ -1,0 +1,62 @@
+.posh-page {
+    padding: 120px 0 60px;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.posh-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #0E1D28;
+    text-align: center;
+}
+
+.posh-section-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #0E1D28;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.posh-section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #ff9900;
+}
+
+.posh-subtitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.posh-content p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.posh-content ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.posh-content li {
+    margin-bottom: 0.5rem;
+}
+
+.posh-highlight {
+    color: #ff9900;
+    font-weight: 500;
+}

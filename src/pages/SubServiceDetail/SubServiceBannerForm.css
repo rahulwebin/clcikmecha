@@ -1,0 +1,123 @@
+.sub-banner-form-wrapper {
+    background-color: #ff9900;
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Optional subtle background pattern or overlay can be added here if needed */
+.sub-banner-form-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.sub-banner-form-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.sub-banner-subtitle {
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.sub-banner-title {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-family: 'Larken', serif;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+}
+
+.sub-banner-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.sub-banner-form input {
+    flex: 1 1 250px;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.sub-banner-form input:focus {
+    border-color: #0E1D28;
+    box-shadow: 0 0 5px rgba(14,29,40,0.5);
+}
+
+.sub-banner-submit {
+    background-color: #0E1D28;
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem 2.5rem;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 1rem auto 0 auto;
+    width: fit-content;
+}
+
+.sub-banner-submit:hover {
+    background-color: #1a364a;
+}
+
+.sub-banner-submit:disabled {
+    background-color: #557cd1;
+    cursor: not-allowed;
+}
+
+.sub-banner-status {
+    margin-top: 1.5rem;
+    padding: 0.8rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.sub-banner-status.success {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.sub-banner-status.error {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+@media (max-width: 768px) {
+    .sub-banner-title {
+        font-size: 2rem;
+    }
+    .sub-banner-form {
+        flex-direction: column;
+    }
+    .sub-banner-form input {
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+}

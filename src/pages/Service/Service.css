@@ -1,0 +1,222 @@
+.service-page-container {
+    background-color: #fffaf0;
+    /* Cream background like the image */
+    padding-top: 6rem;
+    /* padding-bottom: 4rem; */
+    min-height: 100vh;
+}
+
+.service-header {
+    margin-bottom: 4rem;
+}
+
+.service-main-title {
+    font-family: 'Larken', serif;
+    /* Assuming Larken is available, else uses serif */
+    font-size: 3.5rem;
+    font-weight: 500;
+    color: #0E1D28;
+}
+
+/* Card Styles */
+.new-service-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    text-align: center;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Clean shadow for depth if needed, image shows very subtle or flat-ish cards on cream bg */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.new-service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+}
+
+.new-service-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0E1D28;
+    margin-bottom: 1.75rem;
+    /* Ensure title doesn't break weirdly, maybe min-height if needed */
+}
+
+.new-service-read-more {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #F7941E;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    margin-bottom: 2rem;
+    display: inline-block;
+}
+
+.new-service-read-more:hover {
+    color: #e0800e;
+    text-decoration: underline;
+}
+
+.new-service-icon-wrapper {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    /* Fixed height for alignment */
+    width: 100%;
+}
+
+.new-service-icon {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+    /* Drop shadow for the 3D look */
+    /* filter: drop-shadow(0 10px 20px rgba(116, 81, 235, 0.15)); */
+}
+
+.new-service-desc {
+    color: #7a7a7a;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 90%;
+    margin-top: auto;
+    /* Push to bottom if content varies */
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .service-main-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .service-page-container {
+        padding-top: 4rem;
+    }
+
+    .new-service-card {
+        padding: 2rem 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Why Work With Us Section */
+.why-work-section {
+    background-color: #ffffff;
+    /* White background for this section */
+    width: 100vw;
+    /* Ensure full viewport width */
+    margin-left: calc(-50vw + 50%);
+    /* Center it relative to the parent flow if parent is restricted, though we moved it out of container */
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    margin-top: 4rem;
+}
+
+/* Since we moved it out of the container in JSX, we might not need the negative margins if the parent .service-page-container is full width. 
+   Checking parent: .service-page-container is normal div.
+   So simple width 100% and background is enough if it's a direct child. 
+   Let's assume standard full width block.
+*/
+.why-work-section {
+    background-color: #ffffff;
+    width: 100%;
+    padding: 6rem 0;
+    margin-top: 4rem;
+    margin-bottom: 0;
+    /* Remove bottom margin as it's the last section before footer or contact */
+}
+
+.section-header-center {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.why-work-title {
+    font-family: 'Larken', serif;
+    font-size: 3rem;
+    color: #0E1D28;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.why-work-subtitle {
+    color: #666;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Why Cards */
+.why-card {
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: left;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-color: transparent;
+}
+
+.why-icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.icon-blue {
+    background-color: #E8F0FE;
+    color: #4285F4;
+}
+
+.icon-purple {
+    background-color: #F3E5F5;
+    color: #9C27B0;
+}
+
+.icon-pink {
+    background-color: #FCE4EC;
+    color: #E91E63;
+}
+
+.why-card-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0E1D28;
+    margin-bottom: 1rem;
+}
+
+.why-card-desc {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 991px) {
+    .why-work-section {
+        margin-top: 4rem;
+    }
+
+    .why-work-title {
+        font-size: 2.2rem;
+    }
+}

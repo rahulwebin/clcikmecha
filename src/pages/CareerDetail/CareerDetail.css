@@ -1,0 +1,193 @@
+.career-detail-page {
+    background-color: white;
+    font-family: 'Inter', sans-serif;
+    /* padding-bottom: 100px; */
+}
+
+/* Header */
+.career-detail-header {
+    background-color: #FFF8E7;
+    padding: 80px 0;
+    margin-bottom: 60px;
+}
+
+.detail-job-title {
+    font-family: 'Larken', serif;
+    font-size: 3.5rem;
+    color: #0E1D28;
+    margin-bottom: 20px;
+}
+
+.detail-job-summ {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Info Card */
+.job-info-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.info-card-title {
+    font-family: 'Larken', serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.info-icon {
+    color: #666;
+    margin-right: 12px;
+    margin-top: 4px;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #333;
+    margin-right: 8px;
+    min-width: 120px;
+}
+
+.info-value {
+    color: #555;
+    flex: 1;
+}
+
+/* Description Sections */
+.job-description-content {
+    color: #444;
+}
+
+.desc-section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-family: 'Larken', serif;
+    font-size: 1.75rem;
+    color: #0E1D28;
+    margin-bottom: 20px;
+}
+
+.desc-section p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.desc-section ul {
+    padding-left: 20px;
+}
+
+.desc-section li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+    position: relative;
+    list-style-type: disc;
+}
+
+/* Application Form */
+.application-form-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.sticky-sidebar {
+    position: sticky;
+    top: 40px;
+}
+
+.form-title {
+    font-family: 'Larken', serif;
+    font-size: 1.5rem;
+    color: #0E1D28;
+    margin-bottom: 5px;
+}
+
+.form-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.form-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.form-label.required::after {
+    content: " *";
+    color: red;
+}
+
+.form-control,
+.form-select {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border-color: #ddd;
+    background-color: #fff;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #F7941E;
+    box-shadow: 0 0 0 0.2rem rgba(247, 148, 30, 0.15);
+}
+
+.captcha-mockup {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.btn-submit-app {
+    width: 100%;
+    background-color: #F7941E;
+    color: #0E1D28;
+    font-weight: 700;
+    border: 2px solid #0E1D28;
+    border-radius: 50px;
+    padding: 12px;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 0 #0E1D28;
+    transition: all 0.2s;
+}
+
+.btn-submit-app:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 #0E1D28;
+}
+
+@media (max-width: 991px) {
+    .detail-job-title {
+        font-size: 2.5rem;
+    }
+
+    .application-form-card {
+        margin-top: 40px;
+    }
+}

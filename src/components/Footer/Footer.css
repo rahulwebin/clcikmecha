@@ -1,0 +1,308 @@
+.footer-section {
+    background-color: #0E1D28;
+    /* Dark navy/black from screenshot */
+    color: white;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-logo-img {
+    height: 40px;
+    /* Adjust based on logo needs */
+    width: auto;
+    filter: brightness(0) invert(1);
+    /* Make black logo white if it's transparent */
+}
+
+.footer-description {
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 400px;
+    margin-bottom: 2rem;
+}
+
+.social-icons .social-icon {
+    color: white;
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icons .social-icon:hover {
+    background-color: white;
+    color: #0B1221;
+    border-color: white;
+}
+
+.copyright {
+    color: #fff !important;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.footer-links li {
+    margin-bottom: 1.5rem;
+}
+
+.footer-links a {
+    color: #f8f9fa;
+    text-decoration: none;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ff9900;
+}
+
+/* Background Large Text */
+.footer-bg-text {
+    font-size: 14vw;
+    font-weight: bold;
+    color: #142839;
+    user-select: none;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'Larken';
+}
+
+/* Ensure content sits above bg text */
+.footer-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .footer-section {
+        padding-top: 3rem;
+        text-align: left;
+        /* Keep left alignment */
+    }
+
+    /* .footer-bg-text {
+        font-size: 22vw;
+    } */
+}
+
+.newsletter-input {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    padding: 8px 12px;
+    color: white;
+    font-size: 0.9rem;
+    outline: none;
+    flex-grow: 1;
+    max-width: 200px;
+    transition: border-color 0.3s;
+}
+
+.newsletter-input:focus {
+    border-color: #ff9900;
+}
+
+.newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-btn {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.newsletter-btn:hover {
+    background-color: #e68a00;
+    transform: translateX(2px);
+}
+
+@media (max-width: 991px) {
+    .footer-map-container {
+        height: 250px !important;
+        margin-bottom: 2rem;
+    }
+}
+
+/* City-Specific Footer Styles */
+.city-footer-section {
+    background-color: #0E1D28; /* Same background color as the normal page footer */
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.city-footer-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.city-footer-logo-img {
+    height: 44px;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+
+.city-footer-desc {
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.city-footer-social-icons {
+    margin-top: 1rem;
+}
+
+.city-social-icon {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.city-social-icon:hover {
+    background-color: #F7941E;
+    color: white;
+    border-color: #F7941E;
+    transform: translateY(-2px);
+}
+
+.city-footer-contact-details {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1.5rem;
+}
+
+.city-footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+}
+
+.city-footer-contact-item a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.city-footer-contact-item a:hover {
+    color: #F7941E;
+}
+
+.city-footer-icon {
+    color: #F7941E; /* Brand Orange */
+    font-size: 1.1rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.city-footer-title {
+    font-family: 'Larken', serif;
+    font-size: 1.25rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.city-footer-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #F7941E; /* Brand Orange */
+}
+
+.city-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.city-footer-links li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.85rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.city-footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.city-footer-links a:hover {
+    color: #F7941E;
+    padding-left: 5px;
+}
+
+.bullet-dots {
+    color: #F7941E; /* Brand Orange */
+    margin-right: 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+}
+
+.city-footer-bottom {
+    background-color: #081119;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 991px) {
+    .city-footer-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .city-footer-title {
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+    .city-footer-links li {
+        justify-content: center;
+    }
+    .city-footer-contact-item {
+        justify-content: center !important;
+    }
+    .city-footer-desc {
+        text-align: center;
+    }
+}

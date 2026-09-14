@@ -1,0 +1,231 @@
+.nf-page-wrapper {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fffaf0; /* Matches ClickMecha's light cream theme */
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    color: #0E1D28;
+    padding: 3rem 1rem;
+}
+
+/* Background Glow Effects */
+.nf-glow-bg-1 {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(247, 148, 30, 0.08) 0%, rgba(247, 148, 30, 0) 70%);
+    filter: blur(50px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.nf-glow-bg-2 {
+    position: absolute;
+    bottom: 15%;
+    right: 15%;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(247, 148, 30, 0.06) 0%, rgba(247, 148, 30, 0) 70%);
+    filter: blur(60px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Main Content Container */
+.nf-content-container {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+/* Animated 404 Numbers */
+.nf-number-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.nf-digit {
+    font-size: 8rem;
+    font-weight: 800;
+    line-height: 1;
+    background: linear-gradient(135deg, #F7941E 0%, #ffaa3b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 8px 16px rgba(247, 148, 30, 0.15);
+    display: inline-block;
+    cursor: default;
+    user-select: none;
+}
+
+/* Float Animations for digits */
+@keyframes floatUp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes floatDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+
+.nf-digit-left {
+    animation: floatUp 4s ease-in-out infinite;
+}
+
+.nf-digit-center {
+    animation: floatDown 4.5s ease-in-out infinite;
+}
+
+.nf-digit-right {
+    animation: floatUp 4s ease-in-out infinite 0.5s;
+}
+
+/* Texts */
+.nf-title {
+    font-family: 'Larken', serif;
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #0E1D28;
+}
+
+.nf-description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #556675;
+    margin-bottom: 2.5rem;
+}
+
+/* Buttons Styling */
+.nf-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0.95rem 2.2rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.nf-btn-primary {
+    background-color: #F7941E;
+    color: #ffffff;
+    border: 2px solid #F7941E;
+    box-shadow: 0 4px 15px rgba(247, 148, 30, 0.2);
+}
+
+.nf-btn-primary:hover {
+    background-color: #e68a00;
+    border-color: #e68a00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(247, 148, 30, 0.3);
+    color: #ffffff;
+}
+
+.nf-btn-secondary {
+    background-color: transparent;
+    color: #0E1D28;
+    border: 2px solid #0E1D28;
+}
+
+.nf-btn-secondary:hover {
+    background-color: rgba(14, 29, 40, 0.05);
+    transform: translateY(-2px);
+    color: #0E1D28;
+}
+
+.nf-btn-icon {
+    font-size: 1.1rem;
+}
+
+/* Helpful Links section */
+.nf-help-links {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(14, 29, 40, 0.08);
+}
+
+.nf-help-links p {
+    font-size: 0.9rem;
+    color: #667885;
+    margin-bottom: 0.5rem;
+}
+
+.nf-contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #F7941E;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.nf-contact-link:hover {
+    color: #e68a00;
+    text-decoration: underline;
+}
+
+.nf-contact-link:hover .nf-arrow {
+    transform: translateX(4px);
+}
+
+.nf-arrow {
+    transition: transform 0.2s ease;
+}
+
+/* Fade In Animation */
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .nf-digit {
+        font-size: 6rem;
+    }
+    
+    .nf-title {
+        font-size: 1.75rem;
+    }
+    
+    .nf-description {
+        font-size: 0.95rem;
+    }
+    
+    .nf-content-container {
+        padding: 1.5rem 0;
+    }
+    
+    .nf-btn {
+        width: 100%;
+    }
+}
