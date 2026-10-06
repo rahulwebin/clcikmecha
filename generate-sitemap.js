@@ -11,12 +11,12 @@ const BASE_URL = 'https://clickmecha.com';
 async function generateSitemap() {
   try {
     const appFile = fs.readFileSync(APP_JSX_PATH, 'utf-8');
-    
+
     // Regex to match path="..." in <Route> tags
     const routeRegex = /<Route\s+(?:[^>]*?\s+)?path=["']([^"']+)["']/g;
     let match;
     const routes = new Set();
-    
+
     const addRoute = (r) => {
       if (r === undefined || r === null) return;
       const clean = r.replace(/^\/+|\/+$/g, '');
@@ -25,7 +25,7 @@ async function generateSitemap() {
 
     while ((match = routeRegex.exec(appFile)) !== null) {
       let routePath = match[1];
-      
+
       // Add static routes. Ignore dynamic routes (like /blog/:slug) for the automatic static sitemap.
       if (!routePath.includes(':') && routePath !== '*') {
         addRoute(routePath);
@@ -44,26 +44,8 @@ async function generateSitemap() {
     });
 
     // Specialized SubService Pages
-    // India
-    CITY_LOCATIONS.forEach(city => {
-      if (city.toLowerCase() === 'dubai') return;
-      const citySlug = getCitySlug(city);
-      SPECIALIZED_SERVICES.forEach(service => {
-        addRoute(`in/${service.slug}-in-${citySlug}`);
-      });
-    });
-
-    // US
-    US_CITY_LOCATIONS.forEach(city => {
-      const citySlug = getCitySlug(city);
-      SPECIALIZED_SERVICES.forEach(service => {
-        addRoute(`us/${service.slug}-in-${citySlug}`);
-      });
-    });
-
-    // Dubai (AE)
     SPECIALIZED_SERVICES.forEach(service => {
-      addRoute(`ae/${service.slug}-in-dubai`);
+      addRoute(`in/${service.slug}-in-delhi`);
     });
 
     // Fetch dynamic blog routes from API
@@ -76,11 +58,11 @@ async function generateSitemap() {
         const res = await fetch(`https://cms.clickmecha.com/api/blogs?page=${currentPage}`);
         if (!res.ok) throw new Error(`API error: ${res.status}`);
         const data = await res.json();
-        
+
         if (data.status && data.data) {
           const paginationData = data.data;
           const blogs = paginationData.data || [];
-          
+
           // Add each blog slug to the routes set
           blogs.forEach(blog => {
             if (blog.slug) {
@@ -140,14 +122,14 @@ async function generateSitemap() {
     const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${Array.from(routes).map(route => {
-  const locUrl = route ? `${BASE_URL}/${route}` : `${BASE_URL}/`;
-  return `  <url>
+      const locUrl = route ? `${BASE_URL}/${route}` : `${BASE_URL}/`;
+      return `  <url>
     <loc>${locUrl}</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>${getPriorityForRoute(route)}</priority>
   </url>`;
-}).join('\n')}
+    }).join('\n')}
 </urlset>`;
 
     // Ensure public directory exists

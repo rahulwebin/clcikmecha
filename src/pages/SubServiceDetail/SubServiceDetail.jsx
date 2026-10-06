@@ -115,7 +115,7 @@ const SubServiceDetail = () => {
     }
 
     // Validate that the city slug belongs to the requested country
-    if (!isValidCityForCountry(currentCountry, citySlug)) {
+    if (!isValidCityForCountry(currentCountry, citySlug) || citySlug !== 'delhi') {
         return <NotFound />;
     }
 

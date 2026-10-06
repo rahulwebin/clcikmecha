@@ -34,7 +34,7 @@ const Contact = ({ preHeading, helpData }) => {
                         </h5>
                     )}
                     {/* Headline */}
-                    <h2 className="contact-headline">
+                    <div className="contact-headline">
                         {title ? (
                             <span dangerouslySetInnerHTML={{ __html: title }} />
                         ) : (
@@ -43,7 +43,7 @@ const Contact = ({ preHeading, helpData }) => {
                                 <span className="highlight-text">Your <span className="emoji-3d">👋</span> Next Project</span>
                             </>
                         )}
-                    </h2>
+                    </div>
 
                     {/* Contact Info Grid */}
                     <div className="contact-info-wrapper">

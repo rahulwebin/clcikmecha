@@ -1,9 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './ServiceDetail.css';
+import '../LandingPage/LandingPage.css';
 import serviceDetailBg from '../../assets/service-images/service-detail-bg.png';
 import helpSticker from '../../assets/service-images/help-sticker.png';
 import rocketIcon from '../../assets/home-images/rocket.png';
-import { FaCheckCircle, FaEnvelope, FaHandPointRight, FaMapMarkerAlt, FaPhoneAlt, FaArrowRight, FaTimes, FaWhatsapp, FaExternalLinkAlt, FaBuilding } from 'react-icons/fa';
+import { FaCheckCircle, FaEnvelope, FaHandPointRight, FaMapMarkerAlt, FaPhoneAlt, FaArrowRight, FaArrowLeft, FaTimes, FaWhatsapp, FaExternalLinkAlt, FaBuilding, FaUsers, FaGlobe, FaPlay, FaUser, FaCommentDots, FaShieldAlt, FaBolt } from 'react-icons/fa';
+import Slider from 'react-slick';
+import cmAward from '../../assets/CM-Award.jpg.webp';
+import beerCafeBefore from '../../assets/before-after-image/2_Beercafe 1.jpg';
+import flexxoBefore from '../../assets/before-after-image/2_Flexxo 1.jpg';
+import madhusudanBefore from '../../assets/before-after-image/2_Madhusudhan 1.jpg';
+import omBefore from '../../assets/before-after-image/2_Om 1.jpg';
+import beerCafeAfter from '../../assets/before-after-image/2_Beercafe 2.jpg';
+import flexxoAfter from '../../assets/before-after-image/2_Flexxo 2.jpg';
+import madhusudanAfter from '../../assets/before-after-image/2_Madhusudhan 2.jpg';
+import omAfter from '../../assets/before-after-image/2_Om 2.jpg';
+import proofFbSales from '../../assets/proof-images/proof-facebook-sales.jpg';
+import proofShopifyConv from '../../assets/proof-images/proof-shopify-conversion.jpg';
+import proofFbRoas from '../../assets/proof-images/proof-facebook-roas.jpg';
+import proofShopifySales1 from '../../assets/proof-images/proof-shopify-sales-1.jpg';
+import proofShopifySales2 from '../../assets/proof-images/proof-shopify-sales-2.jpg';
 import Contact from '../../components/Contact/Contact';
 import PhoneInput from '../../components/PhoneInput/PhoneInput';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -212,10 +228,10 @@ const specializedServices = [
 
 const GoogleColorIcon = () => (
     <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="sd-google-icon-svg">
-        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
-        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
+        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05" />
+        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335" />
     </svg>
 );
 
@@ -308,27 +324,27 @@ const IndiaGateIcon = () => (
         <rect x="4" y="58" width="56" height="3" rx="1" fill="#F7941E" />
         <rect x="8" y="54" width="48" height="4" rx="1" fill="#F7941E" />
         <rect x="12" y="50" width="40" height="4" rx="1" fill="#F7941E" />
-        
+
         {/* Main Pillars */}
         <rect x="14" y="24" width="10" height="26" fill="#F7941E" />
         <rect x="40" y="24" width="10" height="26" fill="#F7941E" />
-        
+
         {/* Central Archway */}
         <path d="M24 50V35C24 30.58 27.58 27 32 27C36.42 27 40 30.58 40 35V50H24Z" fill="#FFF8EE" stroke="#F7941E" strokeWidth="2.5" />
         <path d="M27 50V37C27 34.2 29.2 32 32 32C34.8 32 37 34.2 37 37V50" stroke="#0E1D28" strokeWidth="1.5" strokeDasharray="2 2" fill="none" />
-        
+
         {/* Middle Cornice */}
         <rect x="10" y="20" width="44" height="4" rx="1" fill="#F7941E" />
         <rect x="14" y="16" width="36" height="4" fill="#F7941E" />
-        
+
         {/* Upper Structure */}
         <rect x="16" y="9" width="32" height="7" rx="1" fill="#F7941E" />
         <line x1="20" y1="12.5" x2="44" y2="12.5" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" />
-        
+
         {/* Top Dome */}
         <rect x="24" y="5" width="16" height="4" rx="1" fill="#F7941E" />
         <path d="M27 5C27 2.5 29.2 1 32 1C34.8 1 37 2.5 37 5H27Z" fill="#0E1D28" />
-        
+
         {/* Architectural lines */}
         <line x1="19" y1="28" x2="19" y2="46" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" opacity="0.9" />
         <line x1="45" y1="28" x2="45" y2="46" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" opacity="0.9" />
@@ -386,70 +402,64 @@ const getOfficeData = (locationName, isDubaiLocation) => {
 
 const getStrategies = (locationName) => [
     {
-        title: `Digital Marketing Agency ${locationName}`,
-        serviceTitle: "Digital Marketing Services",
-        subtitle: "Being visible online is no longer optional. We help your business appear where your customers are searching.",
+        title: "Social Media Marketing",
+        serviceTitle: "Social Media Marketing Services",
+        subtitle: "Build a stronger social presence with content and campaigns designed to reach the right audience and support your business goals.",
         points: [
-            "Improve your online visibility",
-            "Reach the right audience",
-            "Build strong brand awareness",
-            "Increase conversions"
-        ]
+            "Social media strategy",
+            "Content & creative",
+            "Paid social campaigns",
+            "Audience engagement"
+        ],
+        btnText: "GROW MY SOCIAL PRESENCE →"
     },
     {
         title: "Search Engine Optimization (SEO)",
         serviceTitle: "Search Engine Optimization Services",
-        subtitle: "We help your website rank higher on search engines like Google. Our SEO strategies focus on long-term growth and organic traffic.",
+        subtitle: "Improve your search visibility and attract relevant organic traffic with SEO built around your audience, competition, and business goals.",
         points: [
             "Keyword research & strategy",
             "On-page & technical SEO",
-            "Link building",
-            `Local SEO for ${locationName} market`
-        ]
+            "Local SEO",
+            "Link building"
+        ],
+        btnText: "IMPROVE MY SEARCH VISIBILITY →"
     },
     {
         title: "Pay-Per-Click (PPC) Advertising",
         serviceTitle: "Pay Per Click Services",
-        subtitle: "Get instant traffic and leads with targeted ad campaigns. We optimize every campaign to give you maximum ROI.",
+        subtitle: "Reach potential customers through targeted paid campaigns across search and other digital platforms, with ongoing optimization based on campaign performance.",
         points: [
             "Google Ads & Bing Ads",
             "Conversion-focused campaigns",
             "A/B testing & optimization",
-            "Budget-friendly ad strategies"
-        ]
+            "Performance tracking"
+        ],
+        btnText: "LAUNCH A PPC CAMPAIGN →"
     },
     {
-        title: "Social Media Marketing",
-        serviceTitle: "Social Media Marketing Services",
-        subtitle: "We help you connect with your audience on platforms like Instagram, Facebook, and LinkedIn.",
+        title: "Local SEO",
+        serviceTitle: "Local SEO Services",
+        subtitle: "Help local customers find your business when they search for products and services in your area.",
         points: [
-            "Content creation",
-            "Paid ad campaigns",
-            "Audience engagement",
-            "Brand building"
-        ]
+            "Google Business Profile optimization",
+            "Local keyword targeting",
+            "Local citations",
+            "Location-based SEO"
+        ],
+        btnText: "IMPROVE MY LOCAL VISIBILITY →"
     },
     {
-        title: "Website Design & Development",
-        serviceTitle: "Website Designing Services",
-        subtitle: "Your website is your online identity. We create fast, mobile-friendly, and user-focused websites.",
+        title: "Google Ads & Display Advertising",
+        serviceTitle: "Google Ads & Display Advertising Services",
+        subtitle: "Reach potential customers across Google Search, Shopping and Display with targeted paid campaigns.",
         points: [
-            "Modern UI/UX design",
-            "SEO-friendly structure",
-            "Fast loading speed",
-            "Conversion-focused layout"
-        ]
-    },
-    {
-        title: "Shopping & Display Ads",
-        serviceTitle: "Google AdWords Services",
-        subtitle: "Reach your potential customers across Google’s network with smart ad strategies.",
-        points: [
-            "Product-based campaigns",
-            "Visual display ads",
-            "Retargeting strategies",
-            "Higher conversion rates"
-        ]
+            "Search & Shopping campaigns",
+            "Display advertising",
+            "Remarketing",
+            "Campaign optimization"
+        ],
+        btnText: "GROW WITH GOOGLE ADS →"
     }
 ];
 
@@ -716,6 +726,72 @@ const ServiceDetail = ({ locationLabel }) => {
     const officeData = getOfficeData(locationName, isDubaiLocation);
 
     const { openModal } = useContactModal();
+    const sliderRef = useRef(null);
+
+    const resultsSliderSettings = {
+        dots: false,
+        infinite: true,
+        speed: 600,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        arrows: false
+    };
+
+    const lpCaseStudies = [
+        {
+            clientName: "The Beer Café",
+            description: "India's largest alco-beverage chain. We optimized their profile and activity, resulting in visual growth in community size and posts count.",
+            beforeImg: beerCafeBefore,
+            afterImg: beerCafeAfter,
+            beforeLabel: "Before ClickMecha",
+            afterLabel: "After ClickMecha",
+            stats: [
+                { label: "Followers", before: "10K", after: "24K", change: "+140%" },
+                { label: "Total Posts", before: "1,008", after: "2,408", change: "+138%" }
+            ],
+            achievement: "140% Increase in followers & massive content expansion."
+        },
+        {
+            clientName: "Flexxo",
+            description: "A premium wellness and fitness apparel brand. We revamped their visual layout and targeted ad creatives to scale conversion rates.",
+            beforeImg: flexxoBefore,
+            afterImg: flexxoAfter,
+            beforeLabel: "Before ClickMecha",
+            afterLabel: "After ClickMecha",
+            stats: [
+                { label: "Monthly Reach", before: "45K", after: "150K", change: "+233%" },
+                { label: "Ad ROAS", before: "1.8x", after: "4.2x", change: "+133%" }
+            ],
+            achievement: "Scaled social engagement and generated high-converting leads through visual storytelling."
+        },
+        {
+            clientName: "Madhusudan",
+            description: "A leading dairy and food brand. We designed comprehensive digital campaigns to promote key product launches and boost offline sales queries.",
+            beforeImg: madhusudanBefore,
+            afterImg: madhusudanAfter,
+            beforeLabel: "Before ClickMecha",
+            afterLabel: "After ClickMecha",
+            stats: [
+                { label: "Followers Growth", before: "15K", after: "38K", change: "+153%" },
+                { label: "Daily Queries", before: "25", after: "120", change: "+380%" }
+            ],
+            achievement: "Established local digital presence and drove massive retail customer inquiries."
+        },
+        {
+            clientName: "Om",
+            description: "A traditional lifestyle and apparel retail brand. We ran highly targeted local awareness campaigns, expanding brand search volume.",
+            beforeImg: omBefore,
+            afterImg: omAfter,
+            beforeLabel: "Before ClickMecha",
+            afterLabel: "After ClickMecha",
+            stats: [
+                { label: "Impression Volume", before: "80K", after: "280K", change: "+250%" },
+                { label: "Store Visits", before: "120/mo", after: "450/mo", change: "+275%" }
+            ],
+            achievement: "Boosted foot traffic and digital brand searches through local campaign optimization."
+        }
+    ];
     const [activeFaq, setActiveFaq] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formResponse, setFormResponse] = useState({ type: '', text: '' });
@@ -723,6 +799,47 @@ const ServiceDetail = ({ locationLabel }) => {
     const [isHelpSubmitting, setIsHelpSubmitting] = useState(false);
     const [clients, setClients] = useState([]);
     const [testimonials, setTestimonials] = useState([]);
+
+    const [activeProofId, setActiveProofId] = useState(1);
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    const performanceProofs = [
+        {
+            id: 1,
+            platform: "FACEBOOK ADS",
+            image: proofFbSales,
+            highlight: "₹96.42 Lakhs Purchase Value",
+            desc: "Generated over ₹96.4 Lakhs in conversion value from our campaigns, scaling sales and brand presence."
+        },
+        {
+            id: 2,
+            platform: "SHOPIFY ANALYTICS",
+            image: proofShopifyConv,
+            highlight: "4.4% Conversion Rate (+45%)",
+            desc: "Increased store conversion rate to 4.4% through refined shopping experience and UX funnel setup."
+        },
+        {
+            id: 3,
+            platform: "FACEBOOK ADS",
+            image: proofFbRoas,
+            highlight: "11.0x Average ROAS",
+            desc: "Delivered an exceptional 11.0 Return on Ad Spend, maximizing direct customer acquisition margins."
+        },
+        {
+            id: 4,
+            platform: "SHOPIFY ANALYTICS",
+            image: proofShopifySales1,
+            highlight: "₹41.3 Lakhs Total Sales (+35%)",
+            desc: "Generated ₹41.3 Lakhs in sales revenue over a 2-month phase using targeted digital funnels."
+        },
+        {
+            id: 5,
+            platform: "SHOPIFY ANALYTICS",
+            image: proofShopifySales2,
+            highlight: "₹1.08 Lakhs Sales (+154%)",
+            desc: "Drove a 154% rise in month-to-date sales during the launch phase of a targeted product line."
+        }
+    ];
 
     const handleHelpFormSubmit = async (e) => {
         e.preventDefault();
@@ -820,7 +937,7 @@ const ServiceDetail = ({ locationLabel }) => {
     // Dynamic JSON-LD Review & Rating Schema injection in <head>
     useEffect(() => {
         const pageUrl = typeof window !== 'undefined' ? window.location.href : `https://clickmecha.com${currentLoc.pathname}`;
-        
+
         const combinedCount = Math.max(50, 50 + (Array.isArray(testimonials) ? testimonials.length : 0));
 
         const reviewSchema = generateReviewSchema({
@@ -923,55 +1040,152 @@ const ServiceDetail = ({ locationLabel }) => {
     return (
         <div className="sd-page-wrapper">
             {/* Hero / Query Section */}
-            <div className="sd-hero-section">
+            <div className="sd-hero-section" style={{ position: 'relative' }}>
+                {/* Colored Grid Background */}
+                <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundImage: 'linear-gradient(to right, rgba(247, 148, 30, 0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(247, 148, 30, 0.07) 1px, transparent 1px)',
+                    backgroundSize: '40px 40px',
+                    maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%)',
+                    zIndex: 0,
+                    pointerEvents: 'none'
+                }}></div>
                 <div className="container">
-                    <div className="sd-card-container" style={{ backgroundImage: `url(${serviceDetailBg})` }}>
-                        <div className="row align-items-center">
+                    <div className="sd-card-container" style={{ background: 'transparent', boxShadow: 'none', position: 'relative', overflow: 'visible', padding: '3.5rem 0' }}>
+                        <div className="row align-items-center" style={{ position: 'relative', zIndex: 1 }}>
 
                             {/* Left Text Content */}
                             <div className="col-lg-7 sd-content-col">
-                                <h1 className="sd-hero-title">Best Digital Marketing Agency in {locationName}</h1>
+                                <div style={{ display: 'inline-flex', alignItems: 'center', background: '#fff', border: '1px solid #FFE5D9', borderRadius: '50px', padding: '6px 16px', marginBottom: '20px' }}>
+                                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#F7941E', marginRight: '8px' }}></div>
+                                    <span style={{ fontSize: '11px', fontWeight: '700', color: '#F7941E', letterSpacing: '0.5px' }}>RESULTS-DRIVEN DIGITAL MARKETING AGENCY</span>
+                                </div>
+                                <h1 className="sd-hero-title" style={{ fontSize: '4.2rem', lineHeight: '1.1', fontWeight: '900', marginBottom: '5px', color: '#0E1D28', fontFamily: "'Larken', serif", position: 'relative' }}>
+                                    Digital Marketing <br className="d-none d-lg-block" /> <span style={{ color: '#F7941E' }}>Agency</span> in {locationName}
+                                </h1>
+                                <p className="sd-hero-subtitle" style={{ fontSize: '1.6rem', color: '#888', marginBottom: '25px', fontWeight: '400', fontFamily: 'inherit' }}>for Measurable Business Growth</p>
+
                                 <p className="sd-hero-desc">
-                                    With 6+ years of experience in digital marketing services, we help businesses to boost their online visibility with top Digital Marketing Agency in {locationName}. We have combined the latest Digital Marketing Techniques & Proven Strategies that will be 100% Result Oriented & Affordable for every brands. If you really want to turn your business from trusted brands to recognizable brands then choose Click Mecha.
+                                    We help businesses build a stronger digital presence, reach the right audience, and turn online visibility into meaningful growth. As a digital marketing agency in {locationName}, we combine data-driven insights with SEO, paid media, social media, content, and other digital strategies to create campaigns built around your business goals.
+                                </p>
+                                <p className="sd-hero-desc" style={{ marginTop: '15px' }}>
+                                    Whether your goal is to increase visibility, generate qualified leads, drive website traffic, or improve conversions, we build strategies around what your business actually needs.
                                 </p>
 
-                                <ul className="sd-features-list">
-                                    <li>
-                                        <FaCheckCircle className="sd-check-icon" />
-                                        <span>10+ years of industry knowledge & customized services</span>
+                                <div className="sd-stats-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '35px 0' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                                        <div style={{ width: '50px', height: '50px', borderRadius: '12px', background: '#FFF1E0', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#F7941E', fontSize: '22px' }}>
+                                            <FaUsers />
+                                        </div>
+                                        <div>
+                                            <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold' }}>6+ YEARS</h4>
+                                            <p style={{ margin: 0, fontSize: '12px', lineHeight: '1.3', color: '#666' }}>Digital marketing<br />experience</p>
+                                        </div>
+                                    </div>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                                        <div style={{ width: '50px', height: '50px', borderRadius: '12px', background: '#E8EAFF', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4A5CFF', fontSize: '22px' }}>
+                                            <FaBuilding />
+                                        </div>
+                                        <div>
+                                            <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold' }}>MULTI-INDUSTRY INDIA</h4>
+                                            <p style={{ margin: 0, fontSize: '12px', lineHeight: '1.3', color: '#666' }}>Diverse <span>Business sector</span></p>
+                                        </div>
+                                    </div>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                                        <div style={{ width: '50px', height: '50px', borderRadius: '12px', background: '#E6F9F0', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#00B359', fontSize: '22px' }}>
+                                            <FaGlobe />
+                                        </div>
+                                        <div>
+                                            <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold' }}>INDIA + GLOBAL</h4>
+                                            <p style={{ margin: 0, fontSize: '12px', lineHeight: '1.3', color: '#666' }}>Indian & <span>International business</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <ul className="sd-features-list" style={{ marginTop: '0', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                    <li style={{ display: 'flex', alignItems: 'flex-start' }}>
+                                        <div style={{ background: '#F7941E', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '12px', flexShrink: 0, marginTop: '2px' }}>
+                                            <FaCheckCircle style={{ color: '#fff', fontSize: '12px' }} />
+                                        </div>
+                                        <span style={{ fontWeight: '500', color: '#333' }}>Business-first digital strategies</span>
                                     </li>
-                                    <li>
-                                        <FaCheckCircle className="sd-check-icon" />
-                                        <span>We boost ROI and drive more conversions</span>
+                                    <li style={{ display: 'flex', alignItems: 'flex-start' }}>
+                                        <div style={{ background: '#F7941E', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '12px', flexShrink: 0, marginTop: '2px' }}>
+                                            <FaCheckCircle style={{ color: '#fff', fontSize: '12px' }} />
+                                        </div>
+                                        <span style={{ fontWeight: '500', color: '#333' }}>Data-driven marketing focused on measurable goals</span>
                                     </li>
-                                    <li>
-                                        <FaCheckCircle className="sd-check-icon" />
-                                        <span>100% result oriented team with proven strategies</span>
+                                    <li style={{ display: 'flex', alignItems: 'flex-start' }}>
+                                        <div style={{ background: '#F7941E', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '12px', flexShrink: 0, marginTop: '2px' }}>
+                                            <FaCheckCircle style={{ color: '#fff', fontSize: '12px' }} />
+                                        </div>
+                                        <span style={{ fontWeight: '500', color: '#333' }}>Integrated SEO, paid media, social media & content</span>
                                     </li>
-                                    <li>
-                                        <FaCheckCircle className="sd-check-icon" />
-                                        <span>Continuous growth, proper communication</span>
+                                    <li style={{ display: 'flex', alignItems: 'flex-start' }}>
+                                        <div style={{ background: '#F7941E', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '12px', flexShrink: 0, marginTop: '2px' }}>
+                                            <FaCheckCircle style={{ color: '#fff', fontSize: '12px' }} />
+                                        </div>
+                                        <span style={{ fontWeight: '500', color: '#333' }}>Transparent reporting and continuous optimization</span>
                                     </li>
                                 </ul>
 
-                                <button className="sd-book-btn" onClick={openModal}>Talk to Our Team</button>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '30px', marginTop: '35px' }}>
+                                    <button style={{ background: '#F7941E', color: '#fff', border: 'none', borderRadius: '50px', padding: '14px 32px', fontWeight: 'bold', fontSize: '14px', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', boxShadow: '0 8px 20px rgba(247, 148, 30, 0.3)' }} onClick={openModal}>
+                                        TALK TO OUR TEAM <FaArrowRight />
+                                    </button>
+                                </div>
                             </div>
 
                             {/* Right Form Content */}
-                            <div className="col-lg-5 sd-form-col">
-                                <div className="sd-form-box">
-                                    <h3 className="sd-form-heading">Request a Proposal</h3>
+                            <div className="col-lg-5 sd-form-col" style={{ position: 'relative' }}>
+
+
+
+                                {/* Let's Grow Note */}
+                                <div style={{ position: 'absolute', right: '10px', top: '-60px', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', transform: 'rotate(-4deg)' }} className="d-none d-lg-block">
+                                    <span style={{ fontFamily: "'Caveat', cursive", fontSize: '26px', color: '#1E293B', fontWeight: 'bold', lineHeight: '1.1', textAlign: 'center' }}>Let's Grow<br />Your Business<br />Together</span>
+                                    <svg width="60" height="70" viewBox="0 0 60 70" fill="none" style={{ marginTop: '2px', transform: 'translateX(-30px)' }}>
+                                        <path d="M10,10 Q50,20 40,60 M30,50 L40,60 L50,50" stroke="#1E293B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                                    </svg>
+
+                                    {/* Sparkles near the arrow */}
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" style={{ position: 'absolute', top: '10px', left: '-50px' }}>
+                                        <path d="M20,5 L20,15 M35,15 L25,20 M15,25 L5,25" stroke="#F7941E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                                    </svg>
+                                </div>
+
+                                {/* Your Growth Partner Note (Bottom-Left of Form) */}
+                                <div style={{ position: 'absolute', left: '-145px', bottom: '85px', zIndex: 10, transform: 'rotate(-4deg)' }} className="d-none d-lg-block">
+                                    <svg width="85" height="65" viewBox="0 0 85 65" fill="none" style={{ position: 'absolute', top: '-42px', left: '35px' }}>
+                                        <path d="M10,50 Q45,8 80,18 M68,8 L80,18 L68,26" stroke="#1E293B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                                    </svg>
+                                    <span style={{ fontFamily: "'Caveat', cursive", fontSize: '24px', color: '#1E293B', fontWeight: 'bold', lineHeight: '1.1', textAlign: 'center', display: 'block' }}>
+                                        Your<br />Growth Partner<br />in {locationLabel || 'Delhi'}
+                                    </span>
+                                    <div style={{ width: '70%', height: '4px', background: '#F7941E', borderRadius: '4px', margin: '3px auto 0', transform: 'rotate(-2deg)' }}></div>
+                                </div>
+
+                                <div className="sd-form-box" style={{ borderRadius: '24px', padding: '3rem 2.5rem', boxShadow: '0 25px 50px rgba(0,0,0,0.08)' }}>
+                                    <h3 className="sd-form-heading" style={{ fontSize: '26px', fontWeight: 'bold', marginBottom: '10px' }}>Request a Consultation</h3>
+                                    <p style={{ color: '#666', fontSize: '14px', marginBottom: '30px', lineHeight: '1.5' }}>Tell us about your project and we'll get back to you with a customized plan.</p>
                                     {formResponse.text && (
                                         <div className={`alert ${formResponse.type === 'success' ? 'alert-success' : 'alert-danger'} mb-3`}>
                                             {formResponse.text}
                                         </div>
                                     )}
                                     <form onSubmit={handleServiceFormSubmit}>
-                                        <div className="mb-3">
-                                            <input type="text" name="name" className="sd-input-field" placeholder="Full Name" required />
+                                        <div className="mb-3" style={{ position: 'relative' }}>
+                                            <FaUser style={{ position: 'absolute', left: '15px', top: '50%', transform: 'translateY(-50%)', color: '#aaa', fontSize: '14px' }} />
+                                            <input type="text" name="name" className="sd-input-field" placeholder="Full Name" required style={{ paddingLeft: '45px', borderRadius: '12px', border: '1px solid #EAEAEA', height: '52px' }} />
                                         </div>
-                                        <div className="mb-3">
-                                            <input type="email" name="email" className="sd-input-field" placeholder="Email Address" required />
+                                        <div className="mb-3" style={{ position: 'relative' }}>
+                                            <FaEnvelope style={{ position: 'absolute', left: '15px', top: '50%', transform: 'translateY(-50%)', color: '#aaa', fontSize: '14px' }} />
+                                            <input type="email" name="email" className="sd-input-field" placeholder="Email Address" required style={{ paddingLeft: '45px', borderRadius: '12px', border: '1px solid #EAEAEA', height: '52px' }} />
                                         </div>
                                         <div className="mb-3">
                                             <PhoneInput
@@ -980,23 +1194,43 @@ const ServiceDetail = ({ locationLabel }) => {
                                                 required={true}
                                                 className="pill-style"
                                                 placeholder="Phone Number"
+                                                style={{ borderRadius: '12px', border: '1px solid #EAEAEA', height: '52px' }}
                                             />
                                         </div>
-                                        <div className="mb-3">
-                                            <input type="text" name="message" className="sd-input-field" placeholder="Message" required />
+                                        <div className="mb-4" style={{ position: 'relative' }}>
+                                            <FaCommentDots style={{ position: 'absolute', left: '15px', top: '18px', color: '#aaa', fontSize: '14px' }} />
+                                            <textarea name="message" className="sd-input-field" placeholder="Tell us about your goals..." required style={{ paddingLeft: '45px', borderRadius: '12px', border: '1px solid #EAEAEA', minHeight: '100px', paddingTop: '15px', resize: 'none' }}></textarea>
                                         </div>
 
-                                        <div className="sd-checkbox-group mb-4">
-                                            <input type="checkbox" id="sdProjectCheck" name="agree" value="yes" className="sd-checkbox" required />
-                                            <label htmlFor="sdProjectCheck" className="sd-checkbox-label">
+                                        <div className="sd-checkbox-group mb-4" style={{ alignItems: 'flex-start' }}>
+                                            <input type="checkbox" id="sdProjectCheck" name="agree" value="yes" className="sd-checkbox" required style={{ marginTop: '2px', borderColor: '#ccc' }} />
+                                            <label htmlFor="sdProjectCheck" className="sd-checkbox-label" style={{ fontSize: '13px', color: '#666', lineHeight: '1.4' }}>
                                                 I agree to be contacted about my project.
                                             </label>
                                         </div>
 
-                                        <button type="submit" className="sd-submit-btn" disabled={isSubmitting}>
-                                            {isSubmitting ? 'Submitting...' : 'Submit'}
+                                        <button type="submit" className="sd-submit-btn" disabled={isSubmitting} style={{ background: '#F7941E', color: '#fff', border: 'none', borderRadius: '50px', padding: '16px', fontWeight: 'bold', fontSize: '15px', boxShadow: '0 8px 20px rgba(247, 148, 30, 0.3)', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
+                                            {isSubmitting ? 'SUBMITTING...' : 'SUBMIT'} <FaArrowRight />
                                         </button>
                                     </form>
+
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '30px', borderTop: '1px solid #F0F0F0', paddingTop: '25px' }}>
+                                        <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                            <FaShieldAlt style={{ color: '#0E1D28', fontSize: '20px', marginBottom: '8px' }} />
+                                            <h5 style={{ fontSize: '12px', fontWeight: 'bold', margin: '0 0 3px 0', color: '#0E1D28' }}>No Spam</h5>
+                                            <p style={{ fontSize: '10px', color: '#888', margin: 0 }}>We respect your privacy</p>
+                                        </div>
+                                        <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                            <FaBolt style={{ color: '#0E1D28', fontSize: '20px', marginBottom: '8px' }} />
+                                            <h5 style={{ fontSize: '12px', fontWeight: 'bold', margin: '0 0 3px 0', color: '#0E1D28' }}>Quick Response</h5>
+                                            <p style={{ fontSize: '10px', color: '#888', margin: 0 }}>Within 24 hours</p>
+                                        </div>
+                                        <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                            <FaUsers style={{ color: '#0E1D28', fontSize: '20px', marginBottom: '8px' }} />
+                                            <h5 style={{ fontSize: '12px', fontWeight: 'bold', margin: '0 0 3px 0', color: '#0E1D28' }}>Free Consultation</h5>
+                                            <p style={{ fontSize: '10px', color: '#888', margin: 0 }}>Discuss your goals</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -1056,8 +1290,8 @@ const ServiceDetail = ({ locationLabel }) => {
             <div className="sd-strategies-section">
                 <div className="container">
                     <div className="sd-strategies-header">
-                        <h2 className="sd-strategies-title">Core Services Built for Businesses in {locationName}</h2>
-                        <p className="sd-strategies-subtitle">Our strategies are designed to drive real traffic, leads, and conversions.</p>
+                        <h2 className="sd-strategies-title">Digital Marketing Services in {locationName}</h2>
+                        <p className="sd-strategies-subtitle">From search visibility to paid campaigns, we build digital strategies around your business goals.</p>
                     </div>
 
                     <Swiper
@@ -1092,13 +1326,7 @@ const ServiceDetail = ({ locationLabel }) => {
                             <SwiperSlide key={index}>
                                 <div className="sd-strategy-card">
                                     <h3 className="sd-card-title">
-                                        {index === 0 ? (
-                                            <Link to={getCityPagePath(locationName)} style={{ color: 'inherit', textDecoration: 'none' }}>
-                                                {item.title}
-                                            </Link>
-                                        ) : (
-                                            item.title
-                                        )}
+                                        {item.title}
                                     </h3>
                                     {item.subtitle && <p className="mb-3 text-muted" style={{ fontSize: '15px', lineHeight: '1.6' }}>{item.subtitle}</p>}
                                     <ul className="sd-card-list">
@@ -1106,7 +1334,9 @@ const ServiceDetail = ({ locationLabel }) => {
                                             <li key={idx}>{point}</li>
                                         ))}
                                     </ul>
-                                    <button className="sd-card-btn" onClick={openModal}>BOOK A FREE CALL</button>
+                                    <button className="sd-card-btn" onClick={openModal}>
+                                        {item.btnText || "BOOK A FREE CALL"}
+                                    </button>
                                 </div>
                             </SwiperSlide>
                         ))}
@@ -1118,9 +1348,9 @@ const ServiceDetail = ({ locationLabel }) => {
             <div className="sd-case-studies-section">
                 <div className="container">
                     <div className="sd-case-header">
-                        <h2 className="sd-case-title">Our Clients SEO Growth</h2>
+                        <h2 className="sd-case-title">Real SEO Results. Real Businesses.</h2>
                         <p className="sd-case-desc">
-                            We’ve helped businesses across different industries improve their search rankings and get more visibility online. These are some of the real results our clients have seen through consistent SEO work.
+                            Proof of what consistent SEO can do for businesses across industries.
                         </p>
                     </div>
 
@@ -1179,50 +1409,211 @@ const ServiceDetail = ({ locationLabel }) => {
             </div>
 
 
-            {/* Performance Section */}
-            <div className="sd-performance-section">
+            {/* Founder Message Section */}
+            <div className="lp-founder-section">
                 <div className="container">
-                    <h2 className="sd-performance-title">Our Clients Real <br /> Performance and Growth</h2>
-                    <Swiper
-                        modules={[Autoplay, Pagination]}
-                        spaceBetween={30}
-                        slidesPerView={1}
-                        loop={true}
-                        autoplay={{
-                            delay: 4000,
-                            disableOnInteraction: false,
-                        }}
-                        pagination={{
-                            clickable: true,
-                        }}
-                        className="sd-performance-slider"
-                    >
-                        <SwiperSlide>
-                            <div className="sd-performance-card">
-                                <img src={performanceChart1} alt="Performance Chart 1" className="img-fluid" />
+                    <div className="row align-items-center">
+
+                        {/* Left Column: Standalone Founder Award Image */}
+                        <div className="col-lg-4 lp-founder-left-col">
+                            <div className="lp-founder-img-wrapper">
+                                <img src={cmAward} alt="Kavya Kapoor - Founder & CEO" className="lp-founder-img" />
                             </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="sd-performance-card">
-                                <img src={performanceChart2} alt="Performance Chart 2" className="img-fluid" />
+                        </div>
+
+                        {/* Right Column: Founder's Message Text */}
+                        <div className="col-lg-8 lp-founder-content-col">
+                            <span className="lp-founder-badge">FOUNDER'S MESSAGE</span>
+
+                            <div className="lp-founder-info-header">
+                                <h3 className="lp-founder-header-name">Kavya Kapoor</h3>
+                                <p className="lp-founder-header-title">Founder & CEO, ClickMecha</p>
                             </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="sd-performance-card">
-                                <img src={performanceChart3} alt="Performance Chart 3" className="img-fluid" />
+
+                            <h2 className="lp-founder-heading">Solving Real Problems, <span className="lp-highlight-text">Creating Meaningful Impact</span></h2>
+
+                            <div className="lp-founder-message-body">
+                                <p>
+                                    When we started this journey, it wasn't just about building a company—it was about solving real problems and creating meaningful impact. We saw businesses struggling to grow, connect with their audience, and achieve the results they deserved. That challenge became our purpose.
+                                </p>
+                                <p>
+                                    Every client who trusts us with their dreams becomes a part of our story. We understand the hard work, passion, and sacrifices behind every business, because we have lived that journey ourselves.
+                                </p>
+                                <p>
+                                    Our commitment goes beyond delivering services. We strive to build lasting relationships, create opportunities, and help businesses turn their vision into reality. Your success inspires us every day, and we remain dedicated to growing together, overcoming challenges, and celebrating achievements as one team.
+                                </p>
+                                <p className="lp-founder-closing">
+                                    Thank you for being a part of our journey. The best is yet to come.
+                                </p>
                             </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="sd-performance-card">
-                                <img src={performanceChart4} alt="Performance Chart 4" className="img-fluid" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div className="lp-results-section">
+                <div className="container">
+
+                    {/* Section Header */}
+                    <div className="lp-results-header text-center">
+                        <span className="lp-results-badge">CLIENT RESULTS</span>
+                        <h2 className="lp-results-title-main">
+                            Visual Proof of <span className="lp-highlight-text">Real Brand Growth</span>
+                        </h2>
+                        <p className="lp-results-subtitle-main mx-auto">
+                            See how we scale our clients' social footprint, posts engagement, and business reach.
+                        </p>
+                    </div>
+
+                    {/* Extensible Slider of Cases */}
+                    <div className="lp-results-slider-container">
+                        <Slider ref={sliderRef} {...resultsSliderSettings}>
+                            {lpCaseStudies.map((study, index) => (
+                                <div key={index} className="lp-case-slide">
+                                    <div className="lp-case-item">
+
+                                        {/* Client Info Header */}
+                                        <div className="lp-case-info text-center">
+                                            <p className="lp-case-client-desc mx-auto">{study.description}</p>
+
+                                            {/* Stats Badges */}
+                                            <div className="d-flex justify-content-center gap-3 flex-wrap mt-3 mb-5">
+                                                {study.stats.map((stat, statIdx) => (
+                                                    <div key={statIdx} className="lp-case-stat-badge">
+                                                        <span className="lp-badge-label">{stat.label}:</span>
+                                                        <span className="lp-badge-value">{stat.before} ➜ {stat.after}</span>
+                                                        <span className="lp-badge-change">{stat.change}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* Side-by-Side Before/After Screenshot Comparison */}
+                                        <div className="row justify-content-center align-items-stretch lp-case-images-row">
+
+                                            {/* Before Column */}
+                                            <div className="col-md-5 col-6 lp-case-img-col text-center">
+                                                <div className="lp-comparison-label before">BEFORE CLICKMECHA</div>
+                                                <div className="lp-case-screenshot-wrapper">
+                                                    <img src={study.beforeImg} alt={`${study.clientName} Before`} className="lp-case-screenshot" />
+                                                </div>
+                                            </div>
+
+                                            {/* Arrow column on desktop */}
+                                            <div className="col-md-1 d-none d-md-flex align-items-center justify-content-center lp-case-arrow-col">
+                                                <div className="lp-comparison-arrow">➔</div>
+                                            </div>
+
+                                            {/* After Column */}
+                                            <div className="col-md-5 col-6 lp-case-img-col text-center">
+                                                <div className="lp-comparison-label after">AFTER CLICKMECHA</div>
+                                                <div className="lp-case-screenshot-wrapper after-active">
+                                                    <img src={study.afterImg} alt={`${study.clientName} After`} className="lp-case-screenshot" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        {/* Custom Bottom Message / Achievement */}
+                                        <div className="lp-case-achievement text-center mt-5">
+                                            <p className="lp-achievement-text"><strong>Outcome:</strong> {study.achievement}</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            ))}
+                        </Slider>
+
+                        {/* Custom Bottom Slider Controls */}
+                        <div className="lp-results-slider-controls d-flex justify-content-center align-items-center gap-3 mt-4">
+                            <button className="lp-results-control-btn prev" onClick={() => sliderRef.current?.slickPrev()} aria-label="Previous Slide">
+                                <FaArrowLeft />
+                            </button>
+                            <button className="lp-results-control-btn next" onClick={() => sliderRef.current?.slickNext()} aria-label="Next Slide">
+                                <FaArrowRight />
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            {/* Performance Proof / Interactive Showcase Section */}
+            <div className="lp-proof-section py-5">
+                <div className="container">
+
+                    {/* Section Header */}
+                    <div className="lp-proof-header text-center mb-5">
+                        <span className="lp-proof-badge">PERFORMANCE PROOF</span>
+                        <h2 className="lp-proof-title-main">
+                            Real Dashboards. <span className="lp-highlight-text">Real Results.</span>
+                        </h2>
+                        <p className="lp-proof-subtitle mx-auto" style={{ maxWidth: '750px' }}>
+                            A transparent, uncropped look at the actual sales, conversions, and Return on Ad Spend (ROAS) dashboards we manage for our partners. Click on the mockup to zoom.
+                        </p>
+                    </div>
+
+                    <div className="row align-items-stretch g-4">
+
+                        {/* Left Side: Browser Mockup displaying active screenshot */}
+                        <div className="col-lg-7">
+                            <div className="lp-proof-mockup-window">
+
+                                {/* Browser Toolbar */}
+                                <div className="lp-mockup-header d-flex align-items-center px-3 py-2">
+                                    <div className="d-flex align-items-center gap-1">
+                                        <span className="lp-dot-red"></span>
+                                        <span className="lp-dot-yellow"></span>
+                                        <span className="lp-dot-green"></span>
+                                    </div>
+                                    <div className="lp-mockup-address-bar text-center ms-3">
+                                        https://analytics.clickmecha.com/dashboard-proof-{activeProofId}
+                                    </div>
+                                </div>
+
+                                {/* Screenshot Display Wrapper */}
+                                <div className="lp-mockup-body" onClick={() => setSelectedImage(performanceProofs.find(p => p.id === activeProofId)?.image)}>
+                                    <img
+                                        src={performanceProofs.find(p => p.id === activeProofId)?.image}
+                                        alt="Dashboard Proof"
+                                        className="lp-mockup-img"
+                                    />
+                                    <div className="lp-mockup-hover-overlay">
+                                        <span className="lp-zoom-icon">🔍 Click to View Full Image</span>
+                                    </div>
+                                </div>
+
                             </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="sd-performance-card">
-                                <img src={performanceChart5} alt="Performance Chart 5" className="img-fluid" />
-                            </div>
-                        </SwiperSlide>
-                    </Swiper>
+                        </div>
+
+                        {/* Right Side: Interactive Tabs */}
+                        <div className="col-lg-5 d-flex flex-column justify-content-between gap-3">
+                            {performanceProofs.map((proof) => {
+                                const isActive = activeProofId === proof.id;
+                                return (
+                                    <div
+                                        key={proof.id}
+                                        className={`lp-proof-tab-card ${isActive ? 'active' : ''}`}
+                                        onClick={() => setActiveProofId(proof.id)}
+                                    >
+                                        <div className="d-flex justify-content-between align-items-center mb-1">
+                                            <span className="lp-proof-tab-platform">{proof.platform}</span>
+                                            {isActive ? (
+                                                <span className="lp-proof-active-dot">● Active View</span>
+                                            ) : (
+                                                <span className="lp-proof-click-prompt">Tap to view ↗</span>
+                                            )}
+                                        </div>
+                                        <h3 className="lp-proof-tab-highlight">{proof.highlight}</h3>
+                                        <p className="lp-proof-tab-desc mb-0">{proof.desc}</p>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
 
@@ -1289,26 +1680,25 @@ const ServiceDetail = ({ locationLabel }) => {
             <div className="sd-why-section">
                 <div className="container">
                     <div className="row align-items-center">
-                        {/* Left Column: Infographic Image */}
                         <div className="col-lg-6 mb-4 mb-lg-0 text-center">
                             <div className="sd-why-image-wrapper">
-                                <img src={digitalMarketingInfographic} alt="Why Choose ClickMecha" className="img-fluid sd-why-infographic-img" />
+                                <img src={digitalMarketingInfographic} alt="Best Digital Marketing Company" className="img-fluid sd-why-infographic-img" />
                             </div>
                         </div>
 
-                        {/* Right Column: Title, Subtitle, Paragraph & CTA */}
                         <div className="col-lg-6 text-start">
                             <div className="sd-why-content">
-                                <h2 className="sd-why-title text-start mb-2">Top
-                                    Digital Marketing Company in {locationName}</h2>
-                                {/* <p className="sd-why-subtitle text-start mb-4">
-                                    We don’t just talk about results, we build strategies that bring them.
-                                </p> */}
+                                <h2 className="sd-why-title text-start mb-3">
+                                    Best Digital Marketing Company in {locationName} for Business Growth
+                                </h2>
                                 <p className="sd-why-paragraph mb-3">
-                                    We are experienced players in the digital marketing field, backed by a skilled and dedicated team that delivers outstanding results for our clients. Since 2022, we have been helping businesses turn ideas into scalable digital platforms and build a stronger online presence. As an award-winning agency, we focus on delivering measurable growth and better returns on investment for our clients.
+                                    Clickmecha helps businesses build stronger online visibility, generate qualified leads, and grow their digital presence through a strategy built around their business goals.
+                                </p>
+                                <p className="sd-why-paragraph mb-3">
+                                    We start by understanding your business, target audience, competition, and growth objectives. From there, we bring together the right mix of SEO, paid advertising, social media, content, and web development to create a digital strategy that fits your needs.
                                 </p>
                                 <p className="sd-why-paragraph mb-4">
-                                    We offer complete digital marketing services in {locationName}, tailored to the unique needs of every business. Whether you are a small business owner or a growing enterprise, you can directly connect with us. Our team creates a customized digital marketing strategy that helps boost business growth, improve online visibility, and strengthen your online reputation.
+                                    Whether you're an e-commerce brand, real estate company, healthcare business, manufacturer, B2B service, or growing local business, our approach adapts to your audience, market, and goals.
                                 </p>
                                 <button className="sd-card-btn" onClick={openModal}>BOOK A FREE CALL</button>
                             </div>
@@ -1362,145 +1752,145 @@ const ServiceDetail = ({ locationLabel }) => {
                             <div className="sd-featured-item">
                                 <img src={featured4} alt="Hello Entrepreneurs" />
                             </div>
-                                                <div className="sd-featured-item">
-                                                    <img src={featured5} alt="Hindustan Metro" />
+                            <div className="sd-featured-item">
+                                <img src={featured5} alt="Hindustan Metro" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* === Testimonials Section (Google Reviews on Delhi / Home Testimonials on other cities) === */}
+            <section className={`testimonials-section position-relative ${isDelhiLocation ? 'sd-google-testimonials-wrap' : ''}`}>
+                <img src={rocketIcon} alt="Rocket" className="rocket-icon" />
+                <div className="container">
+                    <div className="testimonials-header text-center mb-4 position-relative">
+                        <h2 className="testimonials-headline">
+                            Client <span className="highlight-text">Testimonials</span>
+                        </h2>
+
+                        {isDelhiLocation && (
+                            <div className="sd-google-summary-bar">
+                                <div className="sd-google-summary-left">
+                                    <div className="sd-google-badge-brand">
+                                        <GoogleColorIcon />
+                                        <span className="sd-google-brand-label">Google Rating</span>
+                                    </div>
+                                    <div className="sd-google-score-tag">
+                                        <span className="sd-google-score-val">4.9</span>
+                                        <div className="sd-google-stars-row">
+                                            {[...Array(5)].map((_, i) => (
+                                                <span key={i} className="sd-g-star">★</span>
+                                            ))}
+                                        </div>
+                                        <span className="sd-google-count-text">(50+ Verified Reviews)</span>
+                                    </div>
+                                </div>
+                                <a
+                                    href="https://share.google/GGvOSkMpFttZ8KlTK"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="sd-google-map-btn"
+                                >
+                                    <GoogleColorIcon />
+                                    <span>Review Us on Google</span>
+                                    <FaExternalLinkAlt className="sd-ext-link-ico" />
+                                </a>
+                            </div>
+                        )}
+                    </div>
+                    <div className="testimonials-slider">
+                        <Swiper
+                            modules={[Autoplay, Pagination]}
+                            spaceBetween={24}
+                            slidesPerView={3}
+                            loop={true}
+                            autoplay={{
+                                delay: 3500,
+                                disableOnInteraction: false,
+                            }}
+                            pagination={{
+                                clickable: true,
+                            }}
+                            speed={500}
+                            breakpoints={{
+                                0: {
+                                    slidesPerView: 1,
+                                    spaceBetween: 16
+                                },
+                                768: {
+                                    slidesPerView: 1,
+                                    spaceBetween: 20
+                                },
+                                992: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 24
+                                },
+                                1280: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 24
+                                }
+                            }}
+                        >
+                            {isDelhiLocation ? (
+                                delhiGoogleReviews.map((item) => (
+                                    <SwiperSlide key={item.id}>
+                                        <div className="testimonial-card sd-google-review-card">
+                                            <div className="sd-google-card-top">
+                                                <div className="sd-google-profile-wrap">
+                                                    <div
+                                                        className="sd-google-avatar-box"
+                                                        style={{ backgroundColor: item.avatarBg }}
+                                                    >
+                                                        {item.initials}
+                                                    </div>
+                                                    <div className="sd-google-meta">
+                                                        <h3 className="sd-google-meta-name">{item.name}</h3>
+                                                        <span className="sd-google-meta-sub">{item.badge}</span>
+                                                    </div>
+                                                </div>
+                                                <div className="sd-google-corner-logo" title="Google Review">
+                                                    <GoogleColorIcon />
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                )}
-
-                                {/* === Testimonials Section (Google Reviews on Delhi / Home Testimonials on other cities) === */}
-                                <section className={`testimonials-section position-relative ${isDelhiLocation ? 'sd-google-testimonials-wrap' : ''}`}>
-                                    <img src={rocketIcon} alt="Rocket" className="rocket-icon" />
-                                    <div className="container">
-                                        <div className="testimonials-header text-center mb-4 position-relative">
-                                            <h2 className="testimonials-headline">
-                                                Client <span className="highlight-text">Testimonials</span>
-                                            </h2>
-
-                                            {isDelhiLocation && (
-                                                <div className="sd-google-summary-bar">
-                                                    <div className="sd-google-summary-left">
-                                                        <div className="sd-google-badge-brand">
-                                                            <GoogleColorIcon />
-                                                            <span className="sd-google-brand-label">Google Rating</span>
-                                                        </div>
-                                                        <div className="sd-google-score-tag">
-                                                            <span className="sd-google-score-val">4.9</span>
-                                                            <div className="sd-google-stars-row">
-                                                                {[...Array(5)].map((_, i) => (
-                                                                    <span key={i} className="sd-g-star">★</span>
-                                                                ))}
-                                                            </div>
-                                                            <span className="sd-google-count-text">(50+ Verified Reviews)</span>
-                                                        </div>
-                                                    </div>
-                                                    <a
-                                                        href="https://share.google/GGvOSkMpFttZ8KlTK"
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="sd-google-map-btn"
-                                                    >
-                                                        <GoogleColorIcon />
-                                                        <span>Review Us on Google</span>
-                                                        <FaExternalLinkAlt className="sd-ext-link-ico" />
-                                                    </a>
+                                            <div className="sd-google-rating-row">
+                                                <div className="sd-google-card-stars">
+                                                    {[...Array(item.rating)].map((_, i) => (
+                                                        <span key={i} className="sd-star-gold">★</span>
+                                                    ))}
                                                 </div>
-                                            )}
+                                                <span className="sd-google-timestamp">{item.time}</span>
+                                            </div>
+                                            <p className="sd-google-review-body">{item.content}</p>
+                                            <div className="sd-google-card-bottom">
+                                                <span className="sd-google-verified-chip">
+                                                    <FaCheckCircle className="sd-verified-icon" /> Posted on Google Maps
+                                                </span>
+                                            </div>
                                         </div>
-                                        <div className="testimonials-slider">
-                                            <Swiper
-                                                modules={[Autoplay, Pagination]}
-                                                spaceBetween={24}
-                                                slidesPerView={3}
-                                                loop={true}
-                                                autoplay={{
-                                                    delay: 3500,
-                                                    disableOnInteraction: false,
-                                                }}
-                                                pagination={{
-                                                    clickable: true,
-                                                }}
-                                                speed={500}
-                                                breakpoints={{
-                                                    0: {
-                                                        slidesPerView: 1,
-                                                        spaceBetween: 16
-                                                    },
-                                                    768: {
-                                                        slidesPerView: 1,
-                                                        spaceBetween: 20
-                                                    },
-                                                    992: {
-                                                        slidesPerView: 2,
-                                                        spaceBetween: 24
-                                                    },
-                                                    1280: {
-                                                        slidesPerView: 3,
-                                                        spaceBetween: 24
-                                                    }
-                                                }}
-                                            >
-                                                {isDelhiLocation ? (
-                                                    delhiGoogleReviews.map((item) => (
-                                                        <SwiperSlide key={item.id}>
-                                                            <div className="testimonial-card sd-google-review-card">
-                                                                <div className="sd-google-card-top">
-                                                                    <div className="sd-google-profile-wrap">
-                                                                        <div
-                                                                            className="sd-google-avatar-box"
-                                                                            style={{ backgroundColor: item.avatarBg }}
-                                                                        >
-                                                                            {item.initials}
-                                                                        </div>
-                                                                        <div className="sd-google-meta">
-                                                                            <h3 className="sd-google-meta-name">{item.name}</h3>
-                                                                            <span className="sd-google-meta-sub">{item.badge}</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div className="sd-google-corner-logo" title="Google Review">
-                                                                        <GoogleColorIcon />
-                                                                    </div>
-                                                                </div>
-                                                                <div className="sd-google-rating-row">
-                                                                    <div className="sd-google-card-stars">
-                                                                        {[...Array(item.rating)].map((_, i) => (
-                                                                            <span key={i} className="sd-star-gold">★</span>
-                                                                        ))}
-                                                                    </div>
-                                                                    <span className="sd-google-timestamp">{item.time}</span>
-                                                                </div>
-                                                                <p className="sd-google-review-body">{item.content}</p>
-                                                                <div className="sd-google-card-bottom">
-                                                                    <span className="sd-google-verified-chip">
-                                                                        <FaCheckCircle className="sd-verified-icon" /> Posted on Google Maps
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </SwiperSlide>
-                                                    ))
-                                                ) : (
-                                                    (testimonials && testimonials.length > 0 ? testimonials : defaultTestimonials).map((item, index) => (
-                                                        <SwiperSlide key={item.id || index}>
-                                                            <div className="testimonial-card">
-                                                                <div className="quote-icon">“</div>
-                                                                <div className="stars">
-                                                                    {[...Array(5)].map((_, i) => (
-                                                                        <span key={i}>★</span>
-                                                                    ))}
-                                                                </div>
-                                                                <h3 className="testimonial-title">{item.name || item.client_name}</h3>
-                                                                <p className="testimonial-subtitle text-muted mb-2">{item.position || item.client_position}</p>
-                                                                <p className="testimonial-desc">{item.content || item.testimonial_text}</p>
-                                                            </div>
-                                                        </SwiperSlide>
-                                                    ))
-                                                )}
-                                            </Swiper>
+                                    </SwiperSlide>
+                                ))
+                            ) : (
+                                (testimonials && testimonials.length > 0 ? testimonials : defaultTestimonials).map((item, index) => (
+                                    <SwiperSlide key={item.id || index}>
+                                        <div className="testimonial-card">
+                                            <div className="quote-icon">“</div>
+                                            <div className="stars">
+                                                {[...Array(5)].map((_, i) => (
+                                                    <span key={i}>★</span>
+                                                ))}
+                                            </div>
+                                            <h3 className="testimonial-title">{item.name || item.client_name}</h3>
+                                            <p className="testimonial-subtitle text-muted mb-2">{item.position || item.client_position}</p>
+                                            <p className="testimonial-desc">{item.content || item.testimonial_text}</p>
                                         </div>
-                                    </div>
-                                </section>
+                                    </SwiperSlide>
+                                ))
+                            )}
+                        </Swiper>
+                    </div>
+                </div>
+            </section>
 
 
             {/* ClickMecha is Here to Help Banner (Screenshot 2) */}
@@ -1516,9 +1906,12 @@ const ServiceDetail = ({ locationLabel }) => {
                             {/* Left Text */}
                             <div className="col-lg-5 mb-4 mb-lg-0">
                                 <div className="sd-help-content">
-                                    <h2 className="sd-help-title">ClickMecha is Here to Help</h2>
-                                    <p className="sd-help-desc">
-                                        We understand your business needs and create simple strategies that deliver real results. Our team is always ready to support you in growing your brand, generating leads, and increasing your online presence.
+                                    <h2 className="sd-help-title">Let's Talk About Your Business</h2>
+                                    <p className="sd-help-desc mb-3">
+                                        Tell us what you’re looking to achieve, and our team will help you identify the right digital marketing approach for your business.
+                                    </p>
+                                    <p style={{ color: '#F7941E', fontWeight: '600', fontSize: '0.92rem', letterSpacing: '0.3px', margin: 0 }}>
+                                        SEO · Paid Advertising · Social Media · Content · Web Development
                                     </p>
                                 </div>
                             </div>
@@ -1746,7 +2139,7 @@ const ServiceDetail = ({ locationLabel }) => {
                 </div>
             </div>
 
-            <section className="sd-city-links-section">
+            <section className="sd-city-links-section d-none d-md-block">
                 <div className="container">
                     <div className="sd-city-links-box">
                         <p className="sd-city-links-eyebrow">Explore By Location</p>
@@ -1777,6 +2170,18 @@ const ServiceDetail = ({ locationLabel }) => {
                     </div>
                 </div>
             </section>
+
+            {/* Image Lightbox Modal Popup */}
+            {selectedImage && (
+                <div className="lp-video-modal-overlay" onClick={() => setSelectedImage(null)}>
+                    <div className="lp-image-modal-content" onClick={(e) => e.stopPropagation()}>
+                        <button className="lp-video-modal-close" onClick={() => setSelectedImage(null)}>
+                            <FaTimes />
+                        </button>
+                        <img src={selectedImage} alt="Dashboard Proof Detail" className="lp-image-modal-view" />
+                    </div>
+                </div>
+            )}
 
             {/* Contact Section */}
             <Contact />

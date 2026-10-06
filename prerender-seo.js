@@ -48,26 +48,8 @@ async function runPrerenderSeo() {
   });
 
   // 3. Specialized SubServices
-  // India
-  CITY_LOCATIONS.forEach(city => {
-    if (city.toLowerCase() === 'dubai') return;
-    const citySlug = getCitySlug(city);
-    SPECIALIZED_SERVICES.forEach(service => {
-      routes.add(`/in/${service.slug}-in-${citySlug}`);
-    });
-  });
-
-  // US
-  US_CITY_LOCATIONS.forEach(city => {
-    const citySlug = getCitySlug(city);
-    SPECIALIZED_SERVICES.forEach(service => {
-      routes.add(`/us/${service.slug}-in-${citySlug}`);
-    });
-  });
-
-  // Dubai (AE)
   SPECIALIZED_SERVICES.forEach(service => {
-    routes.add(`/ae/${service.slug}-in-dubai`);
+    routes.add(`/in/${service.slug}-in-delhi`);
   });
 
   // 4. Dynamic Blogs from CMS API

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
 .sd-page-wrapper {
     background-color: #ffffff;
     padding-top: 0.5rem;
@@ -2282,6 +2283,10 @@
         margin-bottom: 1.25rem !important;
     }
 
+    .sd-city-links-section {
+        display: none !important;
+    }
+
     .sd-city-links-box {
         padding: 1.75rem 1rem;
         border-radius: 20px;
@@ -2430,5 +2435,29 @@
     .sd-industries-grid {
         grid-template-columns: 1fr;
         gap: 15px;
+    }
+}
+
+/* Custom Hero Mobile Fixes */
+@media (max-width: 991px) {
+    .sd-hero-title {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+    }
+    .sd-hero-subtitle {
+        font-size: 1.3rem !important;
+        text-align: left;
+    }
+    .sd-content-col {
+        text-align: left !important;
+    }
+    .sd-features-list li {
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+    .sd-stats-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 15px !important;
     }
 }

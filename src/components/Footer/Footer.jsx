@@ -4,6 +4,7 @@ import './Footer.css';
 import { FaLinkedin, FaFacebook, FaInstagram, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import logo from '../../assets/clickmecha-logo.png'; // Updated logo
 import { getSubServicePagePath, getCityNameFromSlug } from '../../data/services';
+import { US_CITY_LOCATIONS } from '../../data/cities';
 
 // Helper mapper for custom links
 const getLink = (title, locationName) => {
@@ -21,7 +22,7 @@ const getLink = (title, locationName) => {
     } else if (title.startsWith("Local SEO Services")) {
         targetTitle = "Search Engine Optimization Services"; // link to main SEO subservice
     }
-    return getSubServicePagePath(targetTitle, locationName);
+    return getSubServicePagePath(targetTitle, "Delhi");
 };
 
 const Footer = () => {
@@ -40,11 +41,11 @@ const Footer = () => {
     let country = 'India';
     if (pathname.includes('/ae/') || citySlug === 'dubai') {
         country = 'UAE';
-    } else if (pathname.includes('/us/') || ['new-york', 'chicago', 'los-angeles', 'san-francisco', 'houston'].includes(citySlug)) {
+    } else if (pathname.includes('/us/') || US_CITY_LOCATIONS.some(c => c.toLowerCase().replace(/\s+/g, '-') === citySlug)) {
         country = 'USA';
     }
 
-    if (isCityOrSubService) {
+    if (isCityOrSubService && country !== 'USA') {
         return (
             <footer className="city-footer-section">
                 <div className="container py-5">
